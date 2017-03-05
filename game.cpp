@@ -28,7 +28,7 @@ Game::Game(){
 }
 //Destructor
 Game::~Game(){
-	delete this->console;
+	//delete this->console;
 }
 
 void Game::setName(string name){
