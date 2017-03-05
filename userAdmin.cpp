@@ -13,5 +13,4 @@ string UserAdmin::getPassword(){
 }
 
 UserAdmin::~UserAdmin(){
-	
 }
