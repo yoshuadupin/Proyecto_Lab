@@ -22,8 +22,8 @@ void Sale::setConsole(Console* console) {
 	this -> consoles -> push_back(console);
 }
 
-void Sale::setVideoGame(VideoGame* videoGame) {
-	this -> videoGames -> push_back(videoGame);
+void Sale::setGame(Game* game) {
+	this -> games -> push_back(game);
 }
 
 void Sale::setFinalHour(string finalHour) {
@@ -48,8 +48,8 @@ Console* Sale::getConsole(int position) {
 	return this -> consoles -> at(position);
 }
 
-VideoGame* Sale::getVideoGame(int position) {
-	return this -> videoGames -> at(position);
+Game* Sale::getGame(int position) {
+	return this -> games -> at(position);
 }
 
 string Sale::getFinalHour() {

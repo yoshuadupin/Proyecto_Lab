@@ -3,7 +3,7 @@
 #pragma once
 
 #include "Console.h"
-#include "VideoGame.h"
+#include "game.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -14,7 +14,7 @@ class Sale {
 	private:
 		string clientName;
 		vector<Console*> consoles;
-		vector<VideoGame*> videoGames;
+		vector<Game*> games;
 		string finalHour;
 		string userName;
 		double subtotal;
@@ -25,14 +25,14 @@ class Sale {
 		// Setters.
 		void setClientName(string);
 		void setConsole(Console*);
-		void setVideoGame(VideoGame*);
+		void setGame(Game*);
 		void setFinalHour(string);
 		void setUserName(string);
 		void setSubtotal(double);
 		// Getters.
 		string getClientName();
 		Console* getConsole(int);
-		VideoGame* getVideoGame(int);
+		Game* getGame(int);
 		string getFinalHour();
 		string getUserName();
 		double getSubtotal();
