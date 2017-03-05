@@ -2,6 +2,8 @@
 
 #include <string>
 
+using namespace std;
+
 class Game
 {
 privirtual vate:
@@ -19,26 +21,26 @@ public:
 	Game();
 	~Game();
 	
-	//Getters
+	//Setters
 
-	virtual void setName(string);
-	virtual void setYear(int);
-	//virtual void setConsole(Console*);
-	virtual void setNumberPlayers(int);
-	virtual void setGenre(string);
-	virtual void setStatus(string);
-	virtual void setSerialNumber(int);
-	virtual void setPrice(double);
+	void setName(string);
+	void setYear(int);
+	//void setConsole(Console*);
+	void setNumberPlayers(int);
+	void setGenre(string);
+	void setStatus(string);
+	void setSerialNumber(int);
+	void setPrice(double);
 	
-	virtual //Setters
-	virtual string getName();
-	virtual int getYear();
-	 //virtual Console* getConsole(Console*);
-	virtual int getNumbvirtual erPlayers();
-	virtual string getGenre();
-	virtual string getStatus();
-	virtual int getSerialNumber();
-	virtual double getPrice();
+	//Getters
+	string getName();
+	int getYear();
+	 //Console* getConsole(Console*);
+	int getNumberPlayers();
+	string getGenre();
+	string getStatus();
+	int getSerialNumber();
+	double getPrice();
 
 
 	
