@@ -18,6 +18,8 @@ class Console {
 	public:
 		// Constructor.
 		Console(int, string, string, int, double);
+		// Destructor.
+		~Console();
 		// Setters.
 		void setYear(int);
 		void setModel(string);
@@ -30,6 +32,4 @@ class Console {
 		string getCondition();
 		int getSerialNumber();
 		double getPrice();
-		// Destructor.
-		~Console();
 };

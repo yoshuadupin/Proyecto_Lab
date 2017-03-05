@@ -1,4 +1,4 @@
-Sistema:	game.o user.o userAdmin.o userSeller.o sony.o microsoft.o bandai.o konami.o squareEnix.o electronicArts.o sega.o ubisoft.o nintendo.o sistema.o
+Sistema:	Console.o game.o user.o userAdmin.o userSeller.o sony.o microsoft.o bandai.o konami.o squareEnix.o electronicArts.o sega.o ubisoft.o nintendo.o sistema.o
 	g++ game.o sony.o microsoft.o bandai.o konami.o squareEnix.o electronicArts.o sega.o ubisoft.o nintendo.o sistema.o -o Sistema
 
 sistema.o:	sistema.cpp 
@@ -38,14 +38,15 @@ microsoft.o:	microsoft.h microsoft.cpp game.h
 
 sony.o:	sony.h sony.cpp game.h
 	g++ -c sony.cpp
-		
-game.o:	game.h game.cpp
+
+game.o:	game.h game.cpp Console.h
 	g++ -c game.cpp
 
 user.o: user.h user.cpp
 	g++ -c user.cpp	
 
-
+Console.o: Console.h Console.cpp
+	g++ -c Console.cpp
 
 clean:	
 	rm *.o Sistema 	

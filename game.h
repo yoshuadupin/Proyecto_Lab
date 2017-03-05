@@ -17,7 +17,7 @@ protected:
 	double price;
 public:
 	//Constructor
-	Game(string , int , Console*  int , string , string ,int , double);
+	Game(string , int , Console* , int , string , string ,int , double);
 	Game();
 	~Game();
 	
@@ -35,7 +35,7 @@ public:
 	//Getters
 	string getName();
 	int getYear();
-	Console* getConsole(Console*);
+	Console* getConsole();
 	int getNumberPlayers();
 	string getGenre();
 	string getStatus();

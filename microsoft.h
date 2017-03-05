@@ -4,7 +4,7 @@
 class Microsoft : public Game
 {	
 public:
-	Microsoft(string , int , Console*  int , string , string ,int , double);
+	Microsoft(string , int , Console* , int , string , string ,int , double);
 	~Microsoft();
 	
 };

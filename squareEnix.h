@@ -5,7 +5,7 @@ class SquareEnix : public Game
 {	
 public:
 	
-	SquareEnix(string , int , Console*  int , string , string ,int , double);
+	SquareEnix(string , int , Console*  ,int , string , string ,int , double);
 	~SquareEnix();
 	
 };
