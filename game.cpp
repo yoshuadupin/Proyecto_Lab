@@ -18,7 +18,7 @@ string genre , string status , int serialNumber , double  price){
 Game::Game(){
 	this->name = ""; 	
 	this->year = 0; 
-	this->console = NULL;
+	//this->console = NULL;
 	this->numberPlayers = 0 ;
 	this->genre = "" ;
 	this->status = "";
