@@ -1,6 +1,8 @@
-Sistema:	game.o sony.o microsoft.o
-	g++ game.o sony.o microsoft.o -o Sistema
+Sistema:	game.o sony.o microsoft.o sistema.o
+	g++ game.o sony.o microsoft.o sistema.o -o Sistema
 
+sistema.o:	sistema.cpp 
+	g++ -c sistema.cpp
 microsoft.o:	microsoft.h microsoft.cpp game.h
 	g++ -c microsoft.cpp
 
