@@ -1,11 +1,12 @@
 #include "game.h"
+//Constructores
 //8 Parametros
 Game::Game(string name , int year , /*Console* console,*/ int numberPlayers , 
 string genre , string status , int serialNumber , double  price){
 
 	this->name = name; 	
 	this->year = year; 
-	this->console = console;
+	//this->console = console;
 	this->numberPlayers = numberPlayers ;
 	this->genre = genre ;
 	this->status = status;
@@ -24,6 +25,10 @@ Game::Game(){
 	this->serialNumber = 0;
 	this->price = 0;
 
+}
+//Destructor
+Game::~Game(){
+	//delete this->console;
 }
 
 void Game::setName(string name){
