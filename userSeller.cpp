@@ -1,26 +1,36 @@
+// userSeller.cpp
+
 #include "userSeller.h"
 
-UserSeller::UserSeller(string name , string checkIn , string checkOut):User(name){
-	this->checkIn = checkIn;
-	this->checkOut = checkOut;
+// Constructor.
+
+UserSeller::UserSeller(string name, string checkIn, string checkOut) : User(name) {
+	this -> checkIn = checkIn;
+	this -> checkOut = checkOut;
 }
 
-UserSeller::~UserSeller(){
+// Setters.
 
+void UserSeller::setCheckIn(string checkIn) {
+	this -> checkIn = checkIn;
 }
 
-//Getter
-string UserSeller::getCheckIn(){
+void UserSeller::setCheckOut(string checkOut) {
+	this -> checkOut = checkOut;
+}
+
+// Getters.
+
+string UserSeller::getCheckIn() {
 	return checkIn;
 }
-string UserSeller::getCheckOut(){
+
+string UserSeller::getCheckOut() {
 	return checkOut;
 }
 
-	//Setter
-void UserSeller::setCheckIn(string checkIn){
-	this->checkIn = checkIn;
-}
-void UserSeller::setCheckOut(string checkOut){
-	this->checkOut = checkOut;
+// Destructor.
+
+UserSeller::~UserSeller() {
+
 }

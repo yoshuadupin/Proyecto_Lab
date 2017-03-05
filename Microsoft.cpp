@@ -11,5 +11,5 @@ Microsoft::Microsoft(int year, string model, string condition, int serialNumber,
 // Destructor.
 
 Microsoft~Microsoft() {
-	// 
+
 }

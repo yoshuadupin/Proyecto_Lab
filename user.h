@@ -1,18 +1,22 @@
+// user.h
+
 #pragma once
+
 #include <string>
 
 using namespace std;
 
-class User
-{
-private:
-	string name;
-	
+class User {
+	private:
+		string name;
 
-public:
-	User(string);
-	~User();
-	
-	void setName(string);
-	string getName();
+	public:
+		// Constructor.
+		User(string);
+		// Setter.
+		void setName(string);
+		// Getter.
+		string getName();
+		// Destructor.
+		~User();
 };

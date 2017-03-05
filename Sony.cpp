@@ -11,5 +11,5 @@ Sony(int year, string model, string condition, int serialNumber, double price) :
 // Destructor.
 
 ~Sony() {
-	// 
+	
 }

@@ -1,16 +1,28 @@
+// userAdmin.cpp
+
 #include "userAdmin.h"
 
-UserAdmin::UserAdmin(string name, int password): User(name){
-	this->password = password;
+// Constructor.
+
+UserAdmin::UserAdmin(string name, int password): User(name) {
+	this -> name = name;
+	this -> password = password;
 }
 
-void UserAdmin::setPassword(int password){
-	this->password = password;
+// Setter.
+
+void UserAdmin::setPassword(int password) {
+	this -> password = password;
 }
 
-string UserAdmin::getPassword(){
+// Getter.
+
+string UserAdmin::getPassword() {
 	return password;
 }
 
-UserAdmin::~UserAdmin(){
+// Destructor.
+
+UserAdmin::~UserAdmin() {
+	
 }

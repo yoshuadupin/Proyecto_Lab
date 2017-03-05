@@ -1,10 +1,11 @@
+// microsoft.h (Videojuego).
+
 #pragma once
+
 #include "game.h"
 
-class Microsoft : public Game
-{	
-public:
-	Microsoft(string , int , Console* , int , string , string ,int , double);
-	~Microsoft();
-	
+class microsoft : public Game {
+	public:
+		microsoft(string, int, Console*, int, string, string, int, double);
+		~microsoft();
 };

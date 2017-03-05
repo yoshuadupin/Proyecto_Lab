@@ -1,11 +1,11 @@
+// konami.h (Videojuego).
+
 #pragma once
+
 #include "game.h"
 
-class Konami : public Game
-{	
-public:
-	//FUCK KONAMI
-	Konami(string , int , Console* , int , string , string ,int , double);
-	~Konami();
-	
+class Konami : public Game {	
+	public:
+		Konami(string, int, Console*, int, string, string, int, double);
+		~Konami();
 };

@@ -12,5 +12,5 @@ Nintendo::Nintendo(int year, string model, string condition, int serialNumber, d
 // Destructor.
 
 Nintendo::~Nintendo() {
-	// 
+
 }

@@ -1,17 +1,27 @@
+// user.cpp
+
 #include "user.h"
 
-User::User(string name){
-	this->name = name;
+// Constructor.
+
+User::User(string name) {
+	this -> name = name;
 }
 
-User::~User(){
+// Setter.
 
+void User::setName(string name) {
+	this -> name = name;
 }
 
-void User::setName(string name){
-	this->name = name;
-}
+// Getter.
 
-string User::getName(){
+string User::getName() {
 	return name;
+}
+
+// Destructor.
+
+User::~User() {
+
 }
