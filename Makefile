@@ -11,7 +11,7 @@ ubisoft.o:	ubisoft.h ubisoft.cpp game.h
 sega.o:	sega.h sega.cpp game.h
 	g++ -c sega.cpp
 
-electronicArts.o:	electronicArts.h electronicArts.cpp game.h
+electronicArts.o:	electroni	cArts.h electronicArts.cpp game.h
 	g++ -c electronicArts.cpp
 
 squareEnix.o:	squareEnix.h squareEnix.cpp game.h
