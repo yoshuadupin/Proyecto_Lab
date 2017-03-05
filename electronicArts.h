@@ -5,7 +5,7 @@ class ElectronicArts : public Game
 {	
 public:
 	
-	ElectronicArts(string , int , /*Console**/  int , string , string ,int , double);
+	ElectronicArts(string , int , Console*  int , string , string ,int , double);
 	~ElectronicArts();
 	
 };

@@ -1,12 +1,12 @@
 #include "game.h"
 //Constructores
 //8 Parametros
-Game::Game(string name , int year , /*Console* console,*/ int numberPlayers , 
-string genre , string status , int serialNumber , double  price){
+Game::Game(string name , int year , Console* console, int numberPlayers , 
+	string genre , string status , int serialNumber , double  price){
 
 	this->name = name; 	
 	this->year = year; 
-	//this->console = console;
+	this->console = console;
 	this->numberPlayers = numberPlayers ;
 	this->genre = genre ;
 	this->status = status;
@@ -18,7 +18,7 @@ string genre , string status , int serialNumber , double  price){
 Game::Game(){
 	this->name = ""; 	
 	this->year = 0; 
-	//this->console = NULL;
+	this->console = NULL;
 	this->numberPlayers = 0 ;
 	this->genre = "" ;
 	this->status = "";
@@ -28,7 +28,7 @@ Game::Game(){
 }
 //Destructor
 Game::~Game(){
-	//delete this->console;
+	delete this->console;
 }
 
 void Game::setName(string name){
@@ -37,9 +37,9 @@ void Game::setName(string name){
 void Game::setYear(int year){
 	this-> year = year;
 }
-//void Game::setConsole(Console*){
-	//this->console = console;
-//}
+void Game::setConsole(Console* console){
+	this->console = console;
+}
 void Game::setNumberPlayers(int numberPlayers){
 	this->numberPlayers = numberPlayers;
 }
@@ -63,9 +63,9 @@ string Game::getName(){
 int Game::getYear(){
 	return year;
 }
-	 //Console* Game::getConsole(Console*){
-	//return
-//}
+Console* Game::getConsole(){
+	return console;
+}
 int Game::getNumberPlayers(){
 	return numberPlayers;
 }

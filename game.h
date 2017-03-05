@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Console.h"
 #include <string>
 
 using namespace std;
@@ -9,7 +9,7 @@ class Game
 protected:
 	string name;
 	int year;
-	//Console* consola;
+	Console* console;
 	int numberPlayers;
 	string genre;
 	string status;
@@ -17,7 +17,7 @@ protected:
 	double price;
 public:
 	//Constructor
-	Game(string , int , /*Console**/  int , string , string ,int , double);
+	Game(string , int , Console*  int , string , string ,int , double);
 	Game();
 	~Game();
 	
@@ -25,7 +25,7 @@ public:
 
 	void setName(string);
 	void setYear(int);
-	//void setConsole(Console*);
+	void setConsole(Console*);
 	void setNumberPlayers(int);
 	void setGenre(string);
 	void setStatus(string);
@@ -35,7 +35,7 @@ public:
 	//Getters
 	string getName();
 	int getYear();
-	 //Console* getConsole(Console*);
+	Console* getConsole(Console*);
 	int getNumberPlayers();
 	string getGenre();
 	string getStatus();

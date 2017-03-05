@@ -4,7 +4,7 @@
 class Sony : public Game
 {	
 public:
-	Sony(string , int , /*Console**/  int , string , string ,int , double);
+	Sony(string , int , Console*  int , string , string ,int , double);
 	~Sony();
 	
 };
