@@ -4,14 +4,18 @@ Sistema:	Console.o game.o user.o userAdmin.o userSeller.o sony.o microsoft.o ban
 sistema.o:	sistema.cpp 
 	g++ -c sistema.cpp
 
-#Usuarios
+# Usuarios
 userAdmin.o:	userAdmin.h userAdmin.cpp user.h
 	g++ -c user.cpp
 
 userSeller.o:	userSeller.h userSeller.cpp user.h
 	g++ -c userSeller.cpp
 
-#Videojuegos
+# Videojuegos
+
+game.o:	game.h game.cpp Console.h
+	g++ -c game.cpp
+
 ubisoft.o:	ubisoft.h ubisoft.cpp game.h
 	g++ -c ubisoft.cpp
 
@@ -39,14 +43,22 @@ microsoft.o:	microsoft.h microsoft.cpp game.h
 sony.o:	sony.h sony.cpp game.h
 	g++ -c sony.cpp
 
-game.o:	game.h game.cpp Console.h
-	g++ -c game.cpp
-
 user.o: user.h user.cpp
 	g++ -c user.cpp	
 
+# Consolas.
+
 Console.o: Console.h Console.cpp
 	g++ -c Console.cpp
+
+Microsoft.o:	Microsoft.h Microsoft.cpp Console.h
+	g++ -c Microsoft.cpp
+
+Sony.o:	Sony.h Sony.cpp Console.h
+	g++ -c Sony.cpp
+
+Nintendo.o:	Nintendo.h Nintendo.cpp Console.h
+	g++ -c Nintendo.cpp
 
 clean:	
 	rm *.o Sistema 	
