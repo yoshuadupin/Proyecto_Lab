@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "usuario.h"
+#include "user.h"
 
 class UserAdmin : public User {
 	private:

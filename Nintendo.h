@@ -12,4 +12,4 @@ class Nintendo : public Console {
 		Nintendo(int, string, string, int, double);
 		// Destructor.
 		~Nintendo();
-}
+};
