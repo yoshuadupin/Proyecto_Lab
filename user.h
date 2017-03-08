@@ -19,4 +19,6 @@ class User {
 		string getName();
 		// Destructor.
 		~User();
+		void addConsole(&vector<Console*>);
+		void addGame(&vector<Game*>);
 };
