@@ -22,7 +22,7 @@ string User::getName() {
 
 // Destructor.
 
-void User::addGame(&vector<Game*> games){
+void User::addGame(vector<Game*> games){
 	string name;
 	int year;
 	Console* console = NULL;
@@ -33,8 +33,8 @@ void User::addGame(&vector<Game*> games){
 	double price;
 	
 	cout<<"Ingrese el nombre del juego:"<<endl;
-	getLine(cin , name);
-	cout<<"Ingrese el ano:"<<end;
+	getline(cin , name);
+	cout<<"Ingrese el ano:"<<endl;
 	cin>>year;
 	cout<<"Ingrese el numero de jugadores:"<<endl;
 	cin>>numberPlayers;
@@ -47,8 +47,8 @@ void User::addGame(&vector<Game*> games){
 	cin>>price;
 	//TODO Hacer metodo para consolas.
 	cout<<"Elija la desarrolladora de su juego:"<<endl;
-	cout<<"1.Microsoft \n2.Sony\n 3.Nintendo\n 4.Bandai\n 5.Konami\n
-	6.Square Enix.\n 7.Electronic Arts\n 8.SEGA\n 9.Ubisoft."<<endl;
+	cout<<"1.Microsoft \n 2.Sony \n 3.Nintendo \n 4.Bandai \n 5.Konami"<<endl;
+	cout<<"6.Square Enix.\n 7.Electronic \n Arts \n 8.SEGA \n 9.Ubisoft."<<endl;
 	int opcion; 
 	cin>>opcion;
 	switch(opcion){
@@ -94,7 +94,7 @@ void User::addGame(&vector<Game*> games){
 	}
 }
 
-void User::addConsole(&vector<Console*> consoles){
+void User::addConsole(vector<Console*> consoles){
 	
 }
 
