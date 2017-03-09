@@ -1,8 +1,8 @@
 // Includes.h
 
-//Ventas
+// Ventas.
 #include "Sale.h"
-//Juegos
+// Juegos.
 #include "game.h"
 #include "microsoft.h"
 #include "sony.h"
@@ -13,12 +13,14 @@
 #include "sega.h"
 #include "squareEnix.h"
 #include "ubisoft.h"
-//Consolas
+// Consolas.
 #include "Console.h"
 #include "Microsoft.h"
 #include "Nintendo.h"
 #include "Sony.h"
-//Usuarios
+// Usuarios.
 #include "user.h"
 #include "userAdmin.h"
 #include "userSeller.h"
+// Administración.
+#include "Management.h"
