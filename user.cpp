@@ -52,7 +52,7 @@ void User::addGame(vector<Game*> games){
 	if(price<=0){
 		price=200;
 	}
-	console = setConsole();
+	console = setNewConsole();
 	/*****************/
 	//TODO Hacer metodo para consolas.
 	/****************/
@@ -252,7 +252,7 @@ void User::addConsole(vector<Console*> consoles){
 	
 }//Que pedo con esta llave
 
-Console* User::setConsole(){
+Console* User::setNewConsole(){
 	int year;
 	string model;
 	string condition;
@@ -267,7 +267,7 @@ Console* User::setConsole(){
 	cout<<"Ingrese el estado de la consola:"<<endl;
 	getline(cin , condition);
 	//Hay que cambiarlo
-	serialNumber = 2000+consoles.size();
+	
 	cout<<"Ingrese el precio de venta:"<<endl;
 	cin>>price;
 	if(price <= 0){
@@ -283,16 +283,16 @@ Console* User::setConsole(){
 		
 		if(opcion == 1){
 			model = "xbox";
-			retun new Microsoft(year , model , condition , serialNumber , price);			
+			return new Microsoft(year , model , condition , serialNumber , price);			
 		}else if(opcion == 2){
 			model = "xbox 360";
-			retun new Microsoft(year , model , condition , serialNumber , price);
+			return new Microsoft(year , model , condition , serialNumber , price);
 		}else if(opcion == 3){
 			model = "xbox One";
-			retun new Microsoft(year , model , condition , serialNumber , price);
+			return new Microsoft(year , model , condition , serialNumber , price);
 		}else{
 			model = "xbox";
-			retun new Microsoft(year , model , condition , serialNumber , price);
+			return new Microsoft(year , model , condition , serialNumber , price);
 		}
 
 	}else if(opcion == 2){
@@ -302,25 +302,25 @@ Console* User::setConsole(){
 		cin>>opcion;
 		if(opcion == 1){
 			model = "Play Station";
-			retun new Sony(year , model , condition , serialNumber , price);
+			return new Sony(year , model , condition , serialNumber , price);
 	}else if(opcion == 2){
 			model = "Play Station 2";
-			retun new Sony(year , model , condition , serialNumber , price);
+			return new Sony(year , model , condition , serialNumber , price);
 	}else if(opcion == 3){
 			model = "Play station 3";
-			retun new Sony(year , model , condition , serialNumber , price);
+			return new Sony(year , model , condition , serialNumber , price);
 	}else if(opcion == 4){
 			model = "Play Station 4";
-			retun new Sony(year , model , condition , serialNumber , price);
+			return new Sony(year , model , condition , serialNumber , price);
 	}else if(opcion == 5){
 			model = "PSP";
-			retun new Sony(year , model , condition , serialNumber , price);
+			return new Sony(year , model , condition , serialNumber , price);
 	}else if(opcion == 6){
 			model = "PS Vita";
-			retun new Sony(year , model , condition , serialNumber , price);
+			return new Sony(year , model , condition , serialNumber , price);
 	}else {
 			model = "Play Station";
-			retun new Sony(year , model , condition , serialNumber , price);
+			return new Sony(year , model , condition , serialNumber , price);
 	}
 
 	}else if (opcion == 3){
@@ -333,49 +333,49 @@ Console* User::setConsole(){
 
 		if(opcion == 1){
 			model = "NES";
-			retun new Nintendo(year , model , condition , serialNumber , price);
+			return new Nintendo(year , model , condition , serialNumber , price);
 		}else if(opcion == 2){
 			model = "SNES";
-			retun new Nintendo(year , model , condition , serialNumber , price);
+			return new Nintendo(year , model , condition , serialNumber , price);
 		}else if(opcion == 3){
 			model = "N64";
-			retun new Nintendo(year , model , condition , serialNumber , price);
+			return new Nintendo(year , model , condition , serialNumber , price);
 		}else if(opcion == 4){
 			model = "Gamecube";
-			retun new Nintendo(year , model , condition , serialNumber , price);
+			return new Nintendo(year , model , condition , serialNumber , price);
 		}else if(opcion == 5){
 			model = "WII";
-			retun new Nintendo(year , model , condition , serialNumber , price);
+			return new Nintendo(year , model , condition , serialNumber , price);
 		}else if(opcion == 6){
 			model = "WII U";
-			retun new Nintendo(year , model , condition , serialNumber , price);
+			return new Nintendo(year , model , condition , serialNumber , price);
 		}else if(opcion == 7){
 			model = "SWITCH";
-			retun new Nintendo(year , model , condition , serialNumber , price);
+			return new Nintendo(year , model , condition , serialNumber , price);
 		}else if(opcion == 8){
 			model = "Gameboy";
-			retun new Nintendo(year , model , condition , serialNumber , price);
+			return new Nintendo(year , model , condition , serialNumber , price);
 		}else if(opcion == 9){
 			model = "Gameboy Colors";
-			retun new Nintendo(year , model , condition , serialNumber , price);
+			return new Nintendo(year , model , condition , serialNumber , price);
 		}else if(opcion == 10){
 			model = "Gameboy advance";
-			retun new Nintendo(year , model , condition , serialNumber , price);
+			return new Nintendo(year , model , condition , serialNumber , price);
 		}else if(opcion == 11){
 			model = "DS";
-			retun new Nintendo(year , model , condition , serialNumber , price);
+			return new Nintendo(year , model , condition , serialNumber , price);
 		}else if(opcion == 12){
 			model = "DSI";
-			retun new Nintendo(year , model , condition , serialNumber , price);
+			return new Nintendo(year , model , condition , serialNumber , price);
 		}else if(opcion == 13){
 			model = "3DS";
-			retun new Nintendo(year , model , condition , serialNumber , price);
+			return new Nintendo(year , model , condition , serialNumber , price);
 		}else if(opcion == 14){
 			model = "New 3DS";
-			retun new Nintendo(year , model , condition , serialNumber , price);
+			return new Nintendo(year , model , condition , serialNumber , price);
 		}else{
 			model = "NES";
-			retun new Nintendo(year , model , condition , serialNumber , price);
+			return new Nintendo(year , model , condition , serialNumber , price);
 		}
 	}else {
 		cout<<"Que modelo desea ingresar "<<endl;
@@ -383,16 +383,16 @@ Console* User::setConsole(){
 		cin>>opcion;
 		if(opcion == 1){
 			model = "xbox";
-			retun new Microsoft(year , model , condition , serialNumber , price);			
+			return new Microsoft(year , model , condition , serialNumber , price);			
 		}else if(opcion == 2){
 			model = "xbox 360";
-			retun new Microsoft(year , model , condition , serialNumber , price);
+			return new Microsoft(year , model , condition , serialNumber , price);
 		}else if(opcion == 3){
 			model = "xbox One";
-			retun new Microsoft(year , model , condition , serialNumber , price);
+			return new Microsoft(year , model , condition , serialNumber , price);
 		}else{
 			model = "xbox";
-			retun new Microsoft(year , model , condition , serialNumber , price);
+			return new Microsoft(year , model , condition , serialNumber , price);
 		}	
 	}
 }
