@@ -37,13 +37,20 @@ void User::addGame(vector<Game*> games){
 	double price;
 	
 	//Asignar un numero de seria desde 1000 para juegos
-	serialNumber = asignarNumeroSerial(games , 1000);
+	cout<<"Ingrese el numero de serie"<<endl;
+	cin>>serialNumber;
+	serialNumber = asignarNumeroSerial(games , serialNumber);
+	
+
 	cout<<"Ingrese el nombre del juego:"<<endl;
 	getline(cin , name);
+	
 	cout<<"Ingrese el ano:"<<endl;
 	cin>>year;
+	
 	cout<<"Ingrese el numero de jugadores:"<<endl;
 	cin>>numberPlayers;
+	
 	cout<<"Ingrese el genero:"<<endl;
 	cin>>genre;
 	
@@ -123,7 +130,10 @@ void User::addConsole(vector<Console*> consoles){
 	getline(cin , condition);
 	//Hay que cambiarlo
 	//Asigna el serial desde 1
-	serialNumber = asignarNumeroSerial(consoles , 1);
+	cout<<"Ingrese el numero de serie"<<endl;
+	cin>>serialNumber;
+	serialNumber = asignarNumeroSerial(consoles , serialNumber);
+	
 	cout<<"Ingrese el precio de venta:"<<endl;
 	cin>>price;
 	if(price <= 0){
@@ -307,25 +317,25 @@ Console* User::setNewConsole(){
 		if(opcion == 1){
 			model = "Play Station";
 			return new Sony(year , model , condition , serialNumber , price);
-	}else if(opcion == 2){
+		}else if(opcion == 2){
 			model = "Play Station 2";
 			return new Sony(year , model , condition , serialNumber , price);
-	}else if(opcion == 3){
+		}else if(opcion == 3){
 			model = "Play station 3";
 			return new Sony(year , model , condition , serialNumber , price);
-	}else if(opcion == 4){
+		}else if(opcion == 4){
 			model = "Play Station 4";
 			return new Sony(year , model , condition , serialNumber , price);
-	}else if(opcion == 5){
+		}else if(opcion == 5){
 			model = "PSP";
 			return new Sony(year , model , condition , serialNumber , price);
-	}else if(opcion == 6){
+		}else if(opcion == 6){
 			model = "PS Vita";
 			return new Sony(year , model , condition , serialNumber , price);
-	}else {
+		}else {
 			model = "Play Station";
 			return new Sony(year , model , condition , serialNumber , price);
-	}
+		}
 
 	}else if (opcion == 3){
 

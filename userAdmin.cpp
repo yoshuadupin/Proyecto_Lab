@@ -106,24 +106,28 @@ void UserAdmin::modifyConsole(vector<Console*> consoles , int pos){
 		cout<<"Ingrese el nuevo ano:"<<endl;
 		cin>>year;
 		consoles[pos]->setYear(year);
+
 	}else if(opcion == 2){
 		cout<<"Ingrese el nuevo model:"<<endl;
 		model = elegirModelo();
 		consoles[pos]->setModel(model);
+
 	}else if(opcion == 3){
 		cout<<"Estado del juego:"<<endl;
 		cin>>condition;
 		consoles[pos]->setCondition(condition);
 
-		
 	}else if(opcion == 4){
-		cout<<"Ingrese el numero de serie:"<<endl;
+		cout<<"Ingrese el numero de serie que sea mayor de 1000"<<endl;
 		//Agregar metodo para que no se repite pero que hueva
 		/*********************/
-		
+		cin>>serialNumber;
+		consoles[pos]->setSerialNumber(serialNumber);
+
 	}else if(opcion == 5){
 		cout<<"Ingrese el precio:"<<endl;
-	
+		cin>>price;
+		consoles[pos]->setPrice(price);
 	}
 }
 
@@ -139,7 +143,7 @@ string UserAdmin::elegirModelo(){
 		
 		if(opcion == 1){
 			return "xbox";
-						
+
 		}else if(opcion == 2){
 			return "xbox 360";
 			
