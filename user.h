@@ -30,6 +30,7 @@ class User {
 	public:
 		void addConsole(vector<Console*>);
 		void addGame(vector<Game*>);
+		//Agregar la consola
 		Console* setNewConsole();
 		// Constructor.
 		User(string);
@@ -38,5 +39,6 @@ class User {
 		// Getter.
 		string getName();
 		// Destructor.
-		//int asignarNumeroAleatorio()		
+		int asignarNumeroSerial(vector<Game*> , int);
+		int asignarNumeroSerial(vector<Console*>, int);		
 };

@@ -90,9 +90,148 @@ void UserAdmin::modifyGame(vector<Game*> games , int pos){
 		delete games[pos]->getConsole();
 		games[pos]->setConsole(NULL);
 		games[pos]->setConsole(setNewConsole());
-		
+
 	}
 
+}
+
+void UserAdmin::modifyConsole(vector<Console*> consoles , int pos){
+	int year;
+	string model;
+	string condition;
+	int serialNumber;
+	double price;
+
+	if(opcion == 1){
+		cout<<"Ingrese el nuevo ano:"<<endl;
+		cin>>year;
+		consoles[pos]->setYear(year);
+	}else if(opcion == 2){
+		cout<<"Ingrese el nuevo model:"<<endl;
+		model = elegirModelo();
+		consoles[pos]->setModel(model);
+	}else if(opcion == 3){
+		cout<<"Estado del juego:"<<endl;
+		cin>>condition;
+		consoles[pos]->setCondition(condition);
+
+		
+	}else if(opcion == 4){
+		cout<<"Ingrese el numero de serie:"<<endl;
+		//Agregar metodo para que no se repite pero que hueva
+		/*********************/
+		
+	}else if(opcion == 5){
+		cout<<"Ingrese el precio:"<<endl;
+	
+	}
+}
+
+string UserAdmin::elegirModelo(){
+	int opcion;
+	cout<<"De que marca de consola desea agregar:[\n1.Microsoft \n2.Sony \n3.La gran N] \nCualquier Otro Numero sera Microsoft."<<endl;
+	cin>>opcion;
+
+	if(opcion == 1){
+		cout<<"Que modelo desea ingresar "<<endl;
+		cout<<"1.xbox\n2.xbox 360\n3.xboxOne\n...[Si elige otro numero se agregara xbox por defecto]"<<endl;
+		cin>>opcion;
+		
+		if(opcion == 1){
+			return "xbox";
+						
+		}else if(opcion == 2){
+			return "xbox 360";
+			
+		}else if(opcion == 3){
+			return "xbox One";
+			
+		}else{
+			return "xbox";
+			
+		}
+	}else if(opcion == 2){
+		cout<<"Que modelo desea ingresar"<<endl;
+		cout<<"1.Play Station 1\n2.Play Station 2\n3.Play Station 3\n4.Play Station 4\n5.PSP\n6.PS Vita"<<endl;
+		cout<<"...[Si elige otra opcion se agregara una Play Station por defecto]"<<endl;
+		cin>>opcion;
+		if(opcion == 1){
+			return "Play Station";
+			
+		}else if(opcion == 2){
+			return "Play Station 2";
+			
+		}else if(opcion == 3){
+			return "Play station 3";
+			
+		}else if(opcion == 4){
+			return "Play Station 4";
+			
+		}else if(opcion == 5){
+			return "PSP";
+			
+		}else if(opcion == 6){
+			return "PS Vita";
+			
+		}else {
+			return "Play Station";
+			
+		}
+
+	}else if (opcion == 3){
+
+		cout<<"Que modelo desea ingresar:"<<endl;
+		cout<<" 1.Nintendo Entertainment System \n2.Super Nintendo Entertainment System \n3.Nintendo 64 \n4.Nintendo Gamecube"<<endl; 
+		cout<<"\n5.Nintendo Wii \n6.Nintendo Wii U \n7.Nintendo Switch \n8.Gameboy \n9.Gameboy Colors \n10.Gameboy Advance \n11.Nintendo DS \n12.Nintendo DSi \n13.Nintendo 3DS \n14.Nintendo New 3DS"<<endl;
+		cout<<"...Si elige otra opcion no prevista se creara una NES por defecto "<<endl;	
+		cin>>opcion;
+
+		if(opcion == 1){
+			return "NES";
+		}else if(opcion == 2){
+			return "SNES";
+		}else if(opcion == 3){
+			return "N64";
+		}else if(opcion == 4){
+			return "Gamecube";
+		}else if(opcion == 5){
+			return "WII";
+		}else if(opcion == 6){
+			return "WII U";
+		}else if(opcion == 7){
+			return "SWITCH";
+		}else if(opcion == 8){
+			return "Gameboy";
+		}else if(opcion == 9){
+			return "Gameboy Colors";
+		}else if(opcion == 10){
+			return "Gameboy advance";
+		}else if(opcion == 11){
+			return "DS";
+		}else if(opcion == 12){
+			return "DSI";
+		}else if(opcion == 13){
+			return "3DS";
+		}else if(opcion == 14){
+			return "New 3DS";
+		}else{
+			return "NES";
+		}
+
+	}else{
+		cout<<"Que modelo desea ingresar "<<endl;
+		cout<<"1.xbox\n2.xbox 360\n3.xboxOne\n...[Si elige otro numero se agregara xbox por defecto]"<<endl;
+		cin>>opcion;
+		if(opcion == 1){
+			return "xbox";			
+		}else if(opcion == 2){
+			return "xbox 360";
+		}else if(opcion == 3){
+			return "xbox One";
+		}else{
+			return "xbox";
+		}
+	}
 }
 
 

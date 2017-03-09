@@ -22,4 +22,6 @@ class UserAdmin : public User {
 		void modifyConsole(vector<Console*> , int);
 		void deleteGame(vector<Game*> , int);
 		void deleteConsole(vector<Console*> ,int);
+		//Metodos para elegir el modelo
+		void elegirModelo();
 };
