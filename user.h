@@ -13,6 +13,11 @@
 #include "electronicArts.h"
 #include "sega.h"
 #include "ubisoft.h"
+//Consolas
+#include "Microsoft.h"
+#include "Sony.h"
+#include "Nintendo.h"
+
 #include <vector>
 #include <string>
 
@@ -32,5 +37,5 @@ class User {
 		// Getter.
 		string getName();
 		// Destructor.
-		~User();
+		
 };

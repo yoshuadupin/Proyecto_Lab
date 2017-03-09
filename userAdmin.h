@@ -17,4 +17,7 @@ class UserAdmin : public User {
 		int getPassword();
 		// Destructor
 		~UserAdmin();
+		
+		void deleteGame(vector<Game*> , int);
+		void deleteConsole(vector<Console*> ,int);
 };
