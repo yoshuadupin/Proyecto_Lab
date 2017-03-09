@@ -1,5 +1,5 @@
-Sistema:	Console.o game.o user.o userAdmin.o userSeller.o sony.o microsoft.o bandai.o konami.o squareEnix.o electronicArts.o sega.o ubisoft.o nintendo.o sistema.o Microsoft.o Sony.o Nintendo.o Management.o
-	g++ Console.o game.o sony.o microsoft.o bandai.o konami.o squareEnix.o electronicArts.o sega.o ubisoft.o nintendo.o sistema.o Microsoft.o Sony.o Nintendo.o Management.o -o Sistema
+Sistema:	Console.o game.o user.o userAdmin.o userSeller.o sony.o microsoft.o bandai.o konami.o squareEnix.o electronicArts.o sega.o ubisoft.o nintendo.o sistema.o Microsoft.o Sony.o Nintendo.o Management.o Sale.o
+	g++ Console.o game.o sony.o microsoft.o bandai.o konami.o squareEnix.o electronicArts.o sega.o ubisoft.o nintendo.o sistema.o Microsoft.o Sony.o Nintendo.o Management.o Sale.o -o Sistema
 
 sistema.o:	sistema.cpp 
 	g++ -c sistema.cpp
@@ -65,5 +65,10 @@ Console.o:	Console.h Console.cpp
 Management.o:	Management.h Management.cpp
 	g++ -c Management.cpp
 
+# Sale.
+
+Sale.o:	Sale.h Sale.cpp
+	g++ -c Sale.cpp
+	
 clean:	
 	rm *.o Sistema 	

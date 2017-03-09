@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <typeinfo>
 #include <vector>
+#include <sstream>
 
 // Escribe en archivo binario.
 void writeFile(vector<Console*>, vector<Game*>);
@@ -17,6 +18,10 @@ void readFile();
 vector<Console*> initializeConsoles();
 // Crea videojuegos predeterminados.
 vector<Game*> initializeVideoGames();
+// Crear ticket.
+void doTicket(Sale*);
+// Obtener ticket.
+//void getTicket();
 
 using namespace std;
 
@@ -27,9 +32,12 @@ int main(int argc, char const *argv[]) {
 		vector<Console*> consoles = initializeConsoles();
 		vector<Game*> videoGames = initializeVideoGames();
 		writeFile(consoles, videoGames);
+	} else {
+		readFile();
 	}
-		// readFile();
-	
+
+	doTicket(new Sale("Ilich", "10:30 pm", "ilich-garcia", 200));
+
 	return 0;
 }
 
@@ -73,6 +81,7 @@ void readFile() {
 	// Copia el archivo en el búfer:
 	
 	result = fread (management,1,lSize,file);
+
 	if (result != lSize) {
 		fputs("Reading error", stderr);
 		exit(3);
@@ -80,14 +89,14 @@ void readFile() {
 
 	// Ahora, todo el archivo está cargado en la memoria del búfer.
 
-	vector<Console*> consoles = management -> getConsoles();
-	vector<Game*> videoGames = management -> getVideoGames();
+	//vector<Console*> consoles = management -> getConsoles();
+	//vector<Game*> videoGames = management -> getVideoGames();
 
-	/*for (int i = 0; i < consoles.size(); ++i) {
+/*	for (int i = 0; i < consoles.size(); ++i) {
 		cout << management -> getConsole(i) -> getSerialNumber() << endl;
-	}
+	}*/
 
-	for (int i = 0; i < videoGames.size(); ++i) {
+	/*for (int i = 0; i < videoGames.size(); ++i) {
 		cout << management -> getVideoGame(i) -> getPrice() << endl;
 	}*/
 
@@ -118,3 +127,27 @@ vector<Game*> initializeVideoGames() {
 
 	return videoGames;
 }
+
+void doTicket(Sale* sale) {
+	ofstream file;
+	stringstream stringStream;
+	string myString;
+
+	stringStream << "./log_ventas" << sale -> getFinalHour() << ".log";
+	myString = stringStream.str();
+
+	file.open(myString.c_str());
+
+	file << "			GAMEHUB          ";
+
+	file.close();
+}
+/*
+void getTicket() {
+	string name;
+	int age;
+	ifstream file("datos.log");
+
+	file >> name >> age;
+	cout << "Tu nombre es: " << name << " y tienes: " << age << "." << endl;
+}*/
