@@ -52,6 +52,7 @@ void User::addGame(vector<Game*> games){
 	if(price<=0){
 		price=200;
 	}
+	console = setConsole();
 	/*****************/
 	//TODO Hacer metodo para consolas.
 	/****************/
@@ -104,7 +105,7 @@ void User::addGame(vector<Game*> games){
 // addConsole().
 
 void User::addConsole(vector<Console*> consoles){
-		int year;
+	int year;
 	string model;
 	string condition;
 	int serialNumber;
@@ -123,10 +124,7 @@ void User::addConsole(vector<Console*> consoles){
 	cin>>price;
 	if(price <= 0){
 		price = 200;
-	}else{
-
 	}
-
 	cout<<"De que marca de consola desea agregar:[\n1.Microsoft \n2.Sony \n3.La gran N] \nCualquier Otro Numero sera Microsoft."<<endl;
 	cin>>opcion;
 
@@ -136,6 +134,7 @@ void User::addConsole(vector<Console*> consoles){
 		cout<<"Que modelo desea ingresar "<<endl;
 		cout<<"1.xbox\n2.xbox 360\n3.xboxOne\n...[Si elige otro numero se agregara xbox por defecto]"<<endl;
 		cin>>opcion;
+		
 		if(opcion == 1){
 			model = "xbox";
 			consoles.push_back(new Microsoft(year , model , condition , serialNumber , price));			
@@ -251,4 +250,149 @@ void User::addConsole(vector<Console*> consoles){
 		}
 	}
 	
+}//Que pedo con esta llave
+
+Console* User::setConsole(){
+	int year;
+	string model;
+	string condition;
+	int serialNumber;
+	double price;
+	//Para la clase
+	int opcion;
+
+	cout<<"Ingrese el ano de salida:"<<endl;
+	cin>>year;
+
+	cout<<"Ingrese el estado de la consola:"<<endl;
+	getline(cin , condition);
+	//Hay que cambiarlo
+	serialNumber = 2000+consoles.size();
+	cout<<"Ingrese el precio de venta:"<<endl;
+	cin>>price;
+	if(price <= 0){
+		price = 200;
+	}
+	cout<<"De que marca de consola desea agregar:[\n1.Microsoft \n2.Sony \n3.La gran N] \nCualquier Otro Numero sera Microsoft."<<endl;
+	cin>>opcion;
+
+	if(opcion == 1){
+		cout<<"Que modelo desea ingresar "<<endl;
+		cout<<"1.xbox\n2.xbox 360\n3.xboxOne\n...[Si elige otro numero se agregara xbox por defecto]"<<endl;
+		cin>>opcion;
+		
+		if(opcion == 1){
+			model = "xbox";
+			retun new Microsoft(year , model , condition , serialNumber , price);			
+		}else if(opcion == 2){
+			model = "xbox 360";
+			retun new Microsoft(year , model , condition , serialNumber , price);
+		}else if(opcion == 3){
+			model = "xbox One";
+			retun new Microsoft(year , model , condition , serialNumber , price);
+		}else{
+			model = "xbox";
+			retun new Microsoft(year , model , condition , serialNumber , price);
+		}
+
+	}else if(opcion == 2){
+		cout<<"Que modelo desea ingresar"<<endl;
+		cout<<"1.Play Station 1\n2.Play Station 2\n3.Play Station 3\n4.Play Station 4\n5.PSP\n6.PS Vita"<<endl;
+		cout<<"...[Si elige otra opcion se agregara una Play Station por defecto]"<<endl;
+		cin>>opcion;
+		if(opcion == 1){
+			model = "Play Station";
+			retun new Sony(year , model , condition , serialNumber , price);
+	}else if(opcion == 2){
+			model = "Play Station 2";
+			retun new Sony(year , model , condition , serialNumber , price);
+	}else if(opcion == 3){
+			model = "Play station 3";
+			retun new Sony(year , model , condition , serialNumber , price);
+	}else if(opcion == 4){
+			model = "Play Station 4";
+			retun new Sony(year , model , condition , serialNumber , price);
+	}else if(opcion == 5){
+			model = "PSP";
+			retun new Sony(year , model , condition , serialNumber , price);
+	}else if(opcion == 6){
+			model = "PS Vita";
+			retun new Sony(year , model , condition , serialNumber , price);
+	}else {
+			model = "Play Station";
+			retun new Sony(year , model , condition , serialNumber , price);
+	}
+
+	}else if (opcion == 3){
+
+		cout<<"Que modelo desea ingresar:"<<endl;
+		cout<<" 1.Nintendo Entertainment System \n2.Super Nintendo Entertainment System \n3.Nintendo 64 \n4.Nintendo Gamecube"<<endl; 
+		cout<<"\n5.Nintendo Wii \n6.Nintendo Wii U \n7.Nintendo Switch \n8.Gameboy \n9.Gameboy Colors \n10.Gameboy Advance \n11.Nintendo DS \n12.Nintendo DSi \n13.Nintendo 3DS \n14.Nintendo New 3DS"<<endl;
+		cout<<"...Si elige otra opcion no prevista se creara una NES por defecto "<<endl;	
+		cin>>opcion;
+
+		if(opcion == 1){
+			model = "NES";
+			retun new Nintendo(year , model , condition , serialNumber , price);
+		}else if(opcion == 2){
+			model = "SNES";
+			retun new Nintendo(year , model , condition , serialNumber , price);
+		}else if(opcion == 3){
+			model = "N64";
+			retun new Nintendo(year , model , condition , serialNumber , price);
+		}else if(opcion == 4){
+			model = "Gamecube";
+			retun new Nintendo(year , model , condition , serialNumber , price);
+		}else if(opcion == 5){
+			model = "WII";
+			retun new Nintendo(year , model , condition , serialNumber , price);
+		}else if(opcion == 6){
+			model = "WII U";
+			retun new Nintendo(year , model , condition , serialNumber , price);
+		}else if(opcion == 7){
+			model = "SWITCH";
+			retun new Nintendo(year , model , condition , serialNumber , price);
+		}else if(opcion == 8){
+			model = "Gameboy";
+			retun new Nintendo(year , model , condition , serialNumber , price);
+		}else if(opcion == 9){
+			model = "Gameboy Colors";
+			retun new Nintendo(year , model , condition , serialNumber , price);
+		}else if(opcion == 10){
+			model = "Gameboy advance";
+			retun new Nintendo(year , model , condition , serialNumber , price);
+		}else if(opcion == 11){
+			model = "DS";
+			retun new Nintendo(year , model , condition , serialNumber , price);
+		}else if(opcion == 12){
+			model = "DSI";
+			retun new Nintendo(year , model , condition , serialNumber , price);
+		}else if(opcion == 13){
+			model = "3DS";
+			retun new Nintendo(year , model , condition , serialNumber , price);
+		}else if(opcion == 14){
+			model = "New 3DS";
+			retun new Nintendo(year , model , condition , serialNumber , price);
+		}else{
+			model = "NES";
+			retun new Nintendo(year , model , condition , serialNumber , price);
+		}
+	}else {
+		cout<<"Que modelo desea ingresar "<<endl;
+		cout<<"1.xbox\n2.xbox 360\n3.xboxOne\n...[Si elige otro numero se agregara xbox por defecto]"<<endl;
+		cin>>opcion;
+		if(opcion == 1){
+			model = "xbox";
+			retun new Microsoft(year , model , condition , serialNumber , price);			
+		}else if(opcion == 2){
+			model = "xbox 360";
+			retun new Microsoft(year , model , condition , serialNumber , price);
+		}else if(opcion == 3){
+			model = "xbox One";
+			retun new Microsoft(year , model , condition , serialNumber , price);
+		}else{
+			model = "xbox";
+			retun new Microsoft(year , model , condition , serialNumber , price);
+		}	
+	}
 }

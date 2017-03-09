@@ -18,6 +18,8 @@ class UserAdmin : public User {
 		// Destructor
 		~UserAdmin();
 		
+		void modifyGame(vector<Game*> , int);
+		void modifyConsole(vector<Console*> , int);
 		void deleteGame(vector<Game*> , int);
 		void deleteConsole(vector<Console*> ,int);
 };
