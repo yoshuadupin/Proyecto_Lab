@@ -22,9 +22,7 @@ string User::getName() {
 
 // Destructor.
 
-User::~User() {
 
-}
 
 // addGame().
 

@@ -43,7 +43,7 @@ microsoft.o:	microsoft.h microsoft.cpp game.h
 sony.o:	sony.h sony.cpp game.h
 	g++ -c sony.cpp
 
-user.o: user.h user.cpp
+user.o: user.h user.cpp Console.h Microsoft.h Sony.h Nintendo.h  game.h bandai.h electronicArts.h konami.h microsoft.h nintendo.h sega.h sony.h squareEnix.h ubisoft.h 
 	g++ -c user.cpp	
 
 # Consolas.
