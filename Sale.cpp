@@ -12,6 +12,14 @@ Sale::Sale(string clientName, string finalHour, string userName, double subtotal
 	this -> subtotal = subtotal;
 }
 
+//Constructor definido
+Sale::Sale(){
+	this -> clientName = "";
+	this -> finalHour = "";
+	this -> userName = "";
+	this -> subtotal = 0;
+}
+
 // Setters.
 
 void Sale::setClientName(string) {

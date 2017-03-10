@@ -22,6 +22,7 @@ class Sale {
 	public:
 		// Constructor.
 		Sale(string, string, string, double);
+		Sale();
 		// Setters.
 		void setClientName(string);
 		void setConsole(Console*);

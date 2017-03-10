@@ -2,6 +2,9 @@
 
 #include "user.h"
 #include "Sale.h"
+#include <typeinfo>
+
+using using namespace std;
 
 class UserSeller : public User {
 	private:
