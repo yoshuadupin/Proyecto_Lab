@@ -1,6 +1,7 @@
 // userSeller.h
 
 #include "user.h"
+#include "Sale.h"
 
 class UserSeller : public User {
 	private:
@@ -19,4 +20,8 @@ class UserSeller : public User {
 		string getCheckOut();
 		// Destructor.
 		~UserSeller();
+		//Hacer una venta 
+		void makeSale(vector<Game*> , vector<Console*>);
+
+
 };

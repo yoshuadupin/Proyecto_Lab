@@ -29,6 +29,32 @@ string UserSeller::getCheckOut() {
 	return checkOut;
 }
 
+void UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
+	Sale* sale = NULL;
+	string cliente;
+	int opcion;
+	cout<<"Ingrese el nombre del cliente"<<endl; 	
+	getline(cin , cliente);
+	cout<<"Que desea comprar 1.Consolas o 2.Juegos:"<<endl;
+	cin>>opcion;
+
+	if(opcion == 1){
+		cout<<"Desea comprar de 1.Microsoft , 2.Sony y 3.Nintendo"<<endl;
+		cin>>opcion;
+		
+		if(opcion == 1){
+			
+		}else if(opcion == 2){
+
+		}else if(opcion == 3){
+
+		}
+	}else{
+
+	}
+
+}
+
 // Destructor.
 
 UserSeller::~UserSeller() {
