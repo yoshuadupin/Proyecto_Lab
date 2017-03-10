@@ -1,15 +1,18 @@
 Sistema:	Console.o game.o user.o userAdmin.o userSeller.o sony.o microsoft.o bandai.o konami.o squareEnix.o electronicArts.o sega.o ubisoft.o nintendo.o sistema.o Microsoft.o Sony.o Nintendo.o Management.o Sale.o
-	g++ Console.o game.o sony.o microsoft.o bandai.o konami.o squareEnix.o electronicArts.o sega.o ubisoft.o nintendo.o sistema.o Microsoft.o Sony.o Nintendo.o Management.o Sale.o -o Sistema
+	g++ Console.o game.o user.o userAdmin.o userSeller.o sony.o microsoft.o bandai.o konami.o squareEnix.o electronicArts.o sega.o ubisoft.o nintendo.o sistema.o Microsoft.o Sony.o Nintendo.o Management.o Sale.o -o Sistema
 
 sistema.o:	sistema.cpp 
 	g++ -c sistema.cpp
 
 # Usuarios
 userAdmin.o:	userAdmin.h userAdmin.cpp user.h
-	g++ -c user.cpp
+	g++ -c userAdmin.cpp
 
 userSeller.o:	userSeller.h userSeller.cpp user.h
 	g++ -c userSeller.cpp
+
+user.o: user.h user.cpp Console.h Microsoft.h Sony.h Nintendo.h  game.h bandai.h electronicArts.h konami.h microsoft.h nintendo.h sega.h sony.h squareEnix.h ubisoft.h 
+	g++ -c user.cpp
 
 # Videojuegos
 
@@ -42,9 +45,6 @@ microsoft.o:	microsoft.h microsoft.cpp game.h
 
 sony.o:	sony.h sony.cpp game.h
 	g++ -c sony.cpp
-
-user.o: user.h user.cpp Console.h Microsoft.h Sony.h Nintendo.h  game.h bandai.h electronicArts.h konami.h microsoft.h nintendo.h sega.h sony.h squareEnix.h ubisoft.h 
-	g++ -c user.cpp	
 
 # Consolas.
 

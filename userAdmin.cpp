@@ -17,7 +17,7 @@ void UserAdmin::setPassword(int password) {
 
 // Getter.
 
-string UserAdmin::getPassword() {
+int UserAdmin::getPassword() {
 	return password;
 }
 
@@ -27,21 +27,19 @@ void UserAdmin::deleteGame(vector<Game*> games , int pos){
 	}else{
 		cout<<"Elimando Juego del inventario"<<endl;
 		delete games[pos];
-		games.erase(pos);
+		//games.erase(pos);
 	}
 }
 void UserAdmin::deleteConsole(vector<Console*> consoles , int pos){
 	if(pos>=consoles.size() || pos<0){
 		cout<<"No se encuentra en el vector"<<endl;
 	}else{
-		cout<<"Elimando consola del inventario"<<endl;
+		cout<<"Eliminando consola del inventario"<<endl;
 		delete consoles[pos];
-		consoles.erase(pos);
+		//consoles.erase(pos);
 	}
 }
 
-
-// Destructor.
 void UserAdmin::modifyGame(vector<Game*> games , int pos){
 	string name;
 	int year;
@@ -80,7 +78,7 @@ void UserAdmin::modifyGame(vector<Game*> games , int pos){
 	}else if(opcion == 6){
 		cout<<"Ingrese el nuevo numero de serie:"<<endl;
 		cin>>serialNumber;
-		games[pos]->setSetialNumber(serialNumber);		
+		games[pos]->setSerialNumber(serialNumber);		
 	}else if(opcion == 7){
 		cout<<"Ingrese el nuevo precio:"<<endl;
 		cin>>price;
@@ -96,7 +94,7 @@ void UserAdmin::modifyGame(vector<Game*> games , int pos){
 }
 
 void UserAdmin::modifyConsole(vector<Console*> consoles , int pos){
-	int year;
+	int year, opcion = 1; // TODO: CAMBIAR OPCION.
 	string model;
 	string condition;
 	int serialNumber;
@@ -155,7 +153,7 @@ string UserAdmin::elegirModelo(){
 			
 		}
 	}else if(opcion == 2){
-		cout<<"Que modelo desea ingresar"<<endl;
+		cout<<"Qué modelo desea ingresar?"<<endl;
 		cout<<"1.Play Station 1\n2.Play Station 2\n3.Play Station 3\n4.Play Station 4\n5.PSP\n6.PS Vita"<<endl;
 		cout<<"...[Si elige otra opcion se agregara una Play Station por defecto]"<<endl;
 		cin>>opcion;
@@ -237,5 +235,3 @@ string UserAdmin::elegirModelo(){
 		}
 	}
 }
-
-

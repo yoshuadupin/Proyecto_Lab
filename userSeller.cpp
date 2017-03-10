@@ -84,11 +84,11 @@ void UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 				cout<<"Precio:"<<consoles[opcion]->getPrice()<<endl;
 				cout<<"Numero de serie:"<<consoles[opcion]->getSerialNumber()<<endl;
 				cout<<endl;
-				sale->setConsole(consoles[i]);
+				sale->setConsole(consoles[opcion]);
 				//liberando memoria
 				delete consoles[opcion];
 				//Borrando Elemento del arreglo 
-				consoles.erase(opcion);
+				////consoles.erase(opcion);
 			}else{
 				cout<<"Ingreso un indice fuera de rango la venta no se realizo"<<endl;
 			}
@@ -144,11 +144,11 @@ void UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 				cout<<"Precio:"<<consoles[opcion]->getPrice()<<endl;
 				cout<<"Numero de serie:"<<consoles[opcion]->getSerialNumber()<<endl;
 				cout<<endl;
-				sale->setConsole(consoles[i]);
+				sale->setConsole(consoles[opcion]);
 				//liberando memoria
 				delete consoles[opcion];
 				//Borrando Elemento del arreglo 
-				consoles.erase(opcion);
+				//consoles.erase(opcion);
 			}else{
 				cout<<"Ingreso un indice fuera de rango la venta no se realizo"<<endl;
 			}
@@ -214,11 +214,11 @@ void UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 				cout<<"Precio:"<<consoles[opcion]->getPrice()<<endl;
 				cout<<"Numero de serie:"<<consoles[opcion]->getSerialNumber()<<endl;
 				cout<<endl;
-				sale->setConsole(consoles[i]);
+				sale->setConsole(consoles[opcion]);
 				//liberando memoria
 				delete consoles[opcion];
 				//Borrando Elemento del arreglo 
-				consoles.erase(opcion);
+				//consoles.erase(opcion);
 			}else{
 				cout<<"Ingreso un indice fuera de rango la venta no se realizo"<<endl;
 			}

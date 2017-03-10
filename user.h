@@ -24,7 +24,7 @@
 using namespace std;
 
 class User {
-	private:
+	protected:
 		string name;
 
 	public:

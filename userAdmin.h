@@ -15,13 +15,11 @@ class UserAdmin : public User {
 		void setPassword(int);
 		// Getter.
 		int getPassword();
-		// Destructor
-		
-		
+		// Modificar y eliminar.
 		void modifyGame(vector<Game*> , int);
 		void modifyConsole(vector<Console*> , int);
 		void deleteGame(vector<Game*> , int);
 		void deleteConsole(vector<Console*> ,int);
 		//Metodos para elegir el modelo
-		void elegirModelo();
+		string elegirModelo();
 };

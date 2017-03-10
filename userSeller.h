@@ -4,7 +4,7 @@
 #include "Sale.h"
 #include <typeinfo>
 
-using using namespace std;
+using namespace std;
 
 class UserSeller : public User {
 	private:

@@ -30,6 +30,8 @@ class Sale {
 		void setFinalHour(string);
 		void setUserName(string);
 		void setSubtotal(double);
+		void setConsoles(vector<Console*>);
+		void setGames(vector<Game*>);
 		// Getters.
 		string getClientName();
 		Console* getConsole(int);
@@ -37,6 +39,8 @@ class Sale {
 		string getFinalHour();
 		string getUserName();
 		double getSubtotal();
+		vector<Console*> getConsoles();
+		vector<Game*> getGames();
 		// Destructor.
 		~Sale();
 };
