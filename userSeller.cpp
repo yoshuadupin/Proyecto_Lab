@@ -205,7 +205,7 @@ void UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 				}
 			}
 
-			cout<<"Ingrese el indice del juego que desea:"<<endl;	
+			cout<<"Ingrese el indice de la consola que desea:"<<endl;	
 			cin>>opcion;
 			if(opcion<consoles.size() && opcion>=0){
 				cout<<"Indice:"<<opcion<<endl;
@@ -224,10 +224,179 @@ void UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 			}
 		}
 	}else{
+		//Parte para juegos
+		cout<<"Elija la desarrolladora de su juego:"<<endl;
+		cout<<"1.Microsoft \n 2.Sony \n 3.Nintendo \n 4.Bandai \n 5.Konami"<<endl;
+		cout<<"6.Square Enix.\n 7.Electronic \n Arts \n 8.SEGA \n 9.Ubisoft."<<endl;
+		cin>>opcion;
 
-	}
+		if(opcion == 1){
+			for (int i = 0; i < games.size(); ++i){
+				if(typeid(*games[i]) == typeid(microsoft)){
+					cout<<"Indice:"<<i<<endl;
+					cout<<"Nombre:"<<games->getName()<<endl;
+					cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+					cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
+					cout<<"Ano:"<<games[i]->getCondition()<<endl;
+					cout<<"Precio:"<<games[i]->getPrice()<<endl;
+					cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
+					cout<<endl;
+				}
+			}			
+		}
 
-}
+		else if(opcion == 2){
+			for (int i = 0; i < games.size(); ++i){
+				if(typeid(*games[i]) == typeid(sony)){
+					cout<<"Indice:"<<i<<endl;
+					cout<<"Nombre:"<<games->getName()<<endl;
+					cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+					cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
+					cout<<"Ano:"<<games[i]->getCondition()<<endl;
+					cout<<"Precio:"<<games[i]->getPrice()<<endl;
+					cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
+					cout<<endl;
+				}
+			}
+		}
+
+		else if(opcion == 3){
+			for (int i = 0; i < games.size(); ++i){
+				if(typeid(*games[i]) == typeid(nintendo)){
+					cout<<"Indice:"<<i<<endl;
+					cout<<"Nombre:"<<games->getName()<<endl;
+					cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+					cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
+					cout<<"Ano:"<<games[i]->getCondition()<<endl;
+					cout<<"Precio:"<<games[i]->getPrice()<<endl;
+					cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
+					cout<<endl;
+				}
+			}
+		}
+
+		else if(opcion == 4){
+			for (int i = 0; i < games.size(); ++i){
+				if(typeid(*games[i]) == typeid(Bandai)){
+					cout<<"Indice:"<<i<<endl;
+					cout<<"Nombre:"<<games->getName()<<endl;
+					cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+					cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
+					cout<<"Ano:"<<games[i]->getCondition()<<endl;
+					cout<<"Precio:"<<games[i]->getPrice()<<endl;
+					cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
+					cout<<endl;
+				}
+			}
+		}
+
+		else if(opcion == 5){
+			for (int i = 0; i < games.size(); ++i){
+				if(typeid(*games[i]) == typeid(Konami)){
+					cout<<"Indice:"<<i<<endl;
+					cout<<"Nombre:"<<games->getName()<<endl;
+					cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+					cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
+					cout<<"Ano:"<<games[i]->getCondition()<<endl;
+					cout<<"Precio:"<<games[i]->getPrice()<<endl;
+					cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
+					cout<<endl;
+				}
+			}
+		}
+
+		else if(opcion == 6){
+			for (int i = 0; i < games.size(); ++i){
+				if(typeid(*games[i]) == typeid(SquareEnix)){
+					cout<<"Indice:"<<i<<endl;
+					cout<<"Nombre:"<<games->getName()<<endl;
+					cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+					cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
+					cout<<"Ano:"<<games[i]->getCondition()<<endl;
+					cout<<"Precio:"<<games[i]->getPrice()<<endl;
+					cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
+					cout<<endl;
+				}
+			}
+		}
+
+		else if(opcion == 7){
+			for (int i = 0; i < games.size(); ++i){
+				if(typeid(*games[i]) == typeid(ElectronicArts)){
+					cout<<"Indice:"<<i<<endl;
+					cout<<"Nombre:"<<games->getName()<<endl;
+					cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+					cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
+					cout<<"Ano:"<<games[i]->getCondition()<<endl;
+					cout<<"Precio:"<<games[i]->getPrice()<<endl;
+					cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
+					cout<<endl;
+				}
+			}
+		}else if(opcion == 8){
+			for (int i = 0; i < games.size(); ++i){
+				if(typeid(*games[i]) == typeid(sega)){
+					cout<<"Indice:"<<i<<endl;
+					cout<<"Nombre:"<<games->getName()<<endl;
+					cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+					cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
+					cout<<"Ano:"<<games[i]->getCondition()<<endl;
+					cout<<"Precio:"<<games[i]->getPrice()<<endl;
+					cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
+					cout<<endl;
+				}
+			}
+
+		}else if(opcion == 9){
+			for (int i = 0; i < games.size(); ++i){
+				if(typeid(*games[i]) == typeid(Ubisoft)){
+					cout<<"Indice:"<<i<<endl;
+					cout<<"Nombre:"<<games->getName()<<endl;
+					cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+					cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
+					cout<<"Ano:"<<games[i]->getCondition()<<endl;
+					cout<<"Precio:"<<games[i]->getPrice()<<endl;
+					cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
+					cout<<endl;
+				}
+			}
+
+		}else{
+			cout<<"Opcion por defecto se agrega una juego Nintendo"<<endl;
+			for (int i = 0; i < games.size(); ++i){
+				if(typeid(*games[i]) == typeid(microsoft)){
+					cout<<"Indice:"<<i<<endl;
+					cout<<"Nombre:"<<games->getName()<<endl;
+					cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+					cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
+					cout<<"Ano:"<<games[i]->getCondition()<<endl;
+					cout<<"Precio:"<<games[i]->getPrice()<<endl;
+					cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
+					cout<<endl;
+				}
+			}			
+		}//Validaciones
+
+		cout<<"Ingrese el indice del juegos que desea:"<<endl;	
+		cin>>opcion;
+		if(opcion<games.size() && opcion>=0){
+			cout<<"Indice:"<<opcion<<endl;
+			cout<<"Modelo:"<<games[opcion]->getModel()<<endl;
+			cout<<"Ano:"<<games[opcion]->getCondition()<<endl;
+			cout<<"Precio:"<<games[opcion]->getPrice()<<endl;
+			cout<<"Numero de serie:"<<games[opcion]->getSerialNumber()<<endl;
+			cout<<endl;
+			sale->setConsole(games[opcion]);
+				//liberando memoria
+			delete games[opcion];
+				//Borrando Elemento del arreglo 
+				//games.erase(opcion);
+		}else{
+			cout<<"Ingreso un indice fuera de rango la venta no se realizo"<<endl;
+		}
+	}//Fin else de venta juegos
+
+}//Fin metodo
 
 // Destructor.
 
