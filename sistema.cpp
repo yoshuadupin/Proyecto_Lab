@@ -304,7 +304,7 @@ void doUserLog(UserSeller* user) {
 	file << "NOMBRE: " << user -> getName() << endl;
 	file << "HORA DE ENTRADA: " << user -> getCheckIn() << endl;
 	file << "HORA DE SALIDA: " << user -> getCheckOut() << endl << endl;
-	file << "CANTIDAD DE ARTÍCULOS VENDIDOS: " << 0 << endl;
+	file << "CANTIDAD DE ARTÍCULOS VENDIDOS: " << (user -> getConsoles().size() + user -> getGames().size()) << endl;
 	file << "CANTIDAD DE DINERO GENERADO: " << 0 << endl;
 	// TODO: Crear archivo con información de ventas del usuario.
 }
