@@ -10,6 +10,7 @@
 #include <vector>
 #include <sstream>
 #include <ctime>
+#include <typeinfo>
 
 // Escribe en archivo binario.
 void writeFile(vector<Console*>, vector<Game*>);
@@ -20,37 +21,53 @@ vector<Console*> initializeConsoles();
 // Crea videojuegos predeterminados.
 vector<Game*> initializeVideoGames();
 // Crea el ticket.
-void doTicket(Sale*);
+void doTicket(Sale*, UserSeller*);
 // Obtiene la fecha.
 string getDate();
 // Obtiene la hora.
 string getHour();
 // Crea el userLog.
 void doUserLog(UserSeller*);
+// Devuelve usuario (administrador o vendedor).
+int getUserOption();
 
 using namespace std;
 
-int main(int argc, char const *argv[]) {
-	FILE* file = fopen("Test.dat", "rb");
+int main() {
 	vector<Console*> consoles;
 	vector<Game*> videoGames;
+	string name, checkIn, checkOut;
+	int option, password;
 
-	/*if (file == NULL) {
-		//videoGames = initializeVideoGames();
-		writeFile(consoles, videoGames);
-	} else {
-		readFile();
-	}*/
-
+	option = getUserOption();
 
 	consoles = initializeConsoles();
-	Sale* sale = new Sale("Ilich", "10:30 pm", "ilich-garcia", 200);
-	UserSeller* userSeller = new UserSeller("Diego", "10:00 am", "5:00 pm");
+	videoGames = initializeVideoGames();
 
-	sale -> setConsoles(consoles);
+	// TODO: Validar si es admin, que el password sea el mismo al leer el binario.
 
-	doTicket(sale);
-	doUserLog(userSeller);
+	cout << "Ingrese nombre del usuario: ";
+	cin >> name;
+
+	User* user;
+
+	if (option == 1) { // Administrador.
+		cout << "Ingrese password del administrador: ";
+		cin >> password;
+
+		UserAdmin* user = new UserAdmin(name, password);
+	} else { // Vendedor
+		UserSeller* user = new UserSeller(name, checkIn, checkOut);
+		
+		user -> setCheckIn(getHour());
+
+		Sale* sale = user -> makeSale(consoles, videoGames);
+
+		sale -> setClientName(name);
+		user -> setCheckOut(getHour());
+		doUserLog(user);
+		doTicket(sale, user);
+	}
 
 	return 0;
 }
@@ -104,13 +121,13 @@ void readFile() {
 	// Ahora, todo el archivo está cargado en la memoria del búfer.
 
 	//vector<Console*> consoles = management -> getConsoles();
-	//vector<Game*> videoGames = management -> getVideoGames();
+	vector<Game*> videoGames = management -> getVideoGames();
 
 /*	for (int i = 0; i < consoles.size(); ++i) {
 		cout << management -> getConsole(i) -> getSerialNumber() << endl;
-	}*/
+	}
 
-	/*for (int i = 0; i < videoGames.size(); ++i) {
+	for (int i = 0; i < videoGames.size(); ++i) {
 		cout << management -> getVideoGame(i) -> getPrice() << endl;
 	}*/
 
@@ -146,7 +163,7 @@ vector<Console*> initializeConsoles() {
 	return consoles;
 }
 
-vector<Game*> initializeVideoGames(Sale* sale) {
+vector<Game*> initializeVideoGames() {
 	vector<Game*> videoGames;
 
 	for (int i = 0; i < 30; ++i) { // Mario Bros.
@@ -172,7 +189,7 @@ vector<Game*> initializeVideoGames(Sale* sale) {
 	return videoGames;
 }
 
-void doTicket(Sale* sale) {
+void doTicket(Sale* sale, UserSeller* user) {
 	ofstream file;
 	stringstream stringStream;
 	string myString;
@@ -186,22 +203,23 @@ void doTicket(Sale* sale) {
 	file << "			GAMEHUB          " << endl << endl;
 	file << "FECHA: " << getDate() << endl;
 	file << "HORA: " << getHour() << endl;
-	file << "VENDEDOR: " << endl;
-	file << "CLIENTE: " << endl << endl;
+	file << "VENDEDOR: " << sale -> getUserName() << endl;
+	file << "CLIENTE: " << sale -> getClientName() << endl << endl;
 	file << "CANTIDAD DE ARTÍCULOS: " << endl << endl;
 
 	// TODO: Nombre de artículos.
 	vector<Console*> consoles = sale -> getConsoles();
+	vector<Game*> videoGames = sale -> getGames();
 
 	for (int i = 0; i < consoles.size(); ++i) { // Consolas compradas.
 		subtotal += consoles.at(i) -> getPrice();
 		file << consoles.at(i) -> getModel() << "	" << consoles.at(i) -> getPrice() << endl;
 	}
-	/*
-	for (int i = 0; i < consoles.size(); ++i) { // Videojuegos comprados.
+
+	for (int i = 0; i < videoGames.size(); ++i) { // Videojuegos comprados.
 		subtotal += videoGames.at(i) -> getPrice();
-		file << videoGames.at(i) -> getModel() << "	  "<< videoGames.at(i) -> getPrice();
-	}*/
+		file << videoGames.at(i) -> getName() << "	  " << videoGames.at(i) -> getPrice() << endl;
+	}
 
 	file << "SUBTOTAL: " << subtotal << endl;
 
@@ -272,21 +290,30 @@ string getHour() {
 	return actualHour;
 }
 
-void doUserLog(UserSeller* userSeller) {
+void doUserLog(UserSeller* user) {
 	ofstream file;
 	stringstream stringStream;
 	string myString;
 
-	stringStream << "./usuarios_log/" << userSeller -> getName() << getDate() << ".log";
+	stringStream << "./usuarios_log/" << user -> getName() << getDate() << ".log";
 	myString = stringStream.str();
 
 	file.open(myString.c_str());
 
 	file << "			GAMEHUB          " << endl << endl;
-	file << "NOMBRE: " << userSeller -> getName() << endl;
-	file << "HORA DE ENTRADA: " << userSeller -> getCheckIn() << endl;
-	file << "HORA DE SALIDA: " << userSeller -> getCheckOut() << endl << endl;
+	file << "NOMBRE: " << user -> getName() << endl;
+	file << "HORA DE ENTRADA: " << user -> getCheckIn() << endl;
+	file << "HORA DE SALIDA: " << user -> getCheckOut() << endl << endl;
 	file << "CANTIDAD DE ARTÍCULOS VENDIDOS: " << 0 << endl;
 	file << "CANTIDAD DE DINERO GENERADO: " << 0 << endl;
 	// TODO: Crear archivo con información de ventas del usuario.
+}
+
+int getUserOption() {
+	int option;
+
+	cout << "Ingrese tipo de usuario: \n1) Administrador. \n2) Vendedor. \nOpción: ";
+	cin >> option;
+
+	return option;
 }

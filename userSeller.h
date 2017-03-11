@@ -26,7 +26,7 @@ class UserSeller : public User {
 		// Destructor.
 		~UserSeller();
 		//Hacer una venta 
-		Sale* makeSale(vector<Game*> , vector<Console*>);
+		Sale* makeSale(vector<Console*>, vector<Game*>);
 		string getHour();
 
 };
