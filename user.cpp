@@ -122,6 +122,7 @@ void User::addConsole(vector<Console*> consoles){
 	double price;
 	//Para la clase
 	int opcion;
+	int cantidadConsolas;
 
 	cout<<"Ingrese el ano de salida:"<<endl;
 	cin>>year;
@@ -130,15 +131,22 @@ void User::addConsole(vector<Console*> consoles){
 	getline(cin , condition);
 	//Hay que cambiarlo
 	//Asigna el serial desde 1
-	cout<<"Ingrese el numero de serie"<<endl;
+	/*cout<<"Ingrese el numero de serie"<<endl;
 	cin>>serialNumber;
 	serialNumber = asignarNumeroSerial(consoles , serialNumber);
-	
+	*/
 	cout<<"Ingrese el precio de venta:"<<endl;
 	cin>>price;
 	if(price <= 0){
 		price = 200;
 	}
+	
+	//validacion
+	do{
+		cout<<"Ingrese la cantidad de consolas del mismo modelo:"<<endl;
+		cin>>cantidadConsolas;
+	}while(cantidadConsolas<=0);
+	
 	cout<<"De que marca de consola desea agregar:[\n1.Microsoft \n2.Sony \n3.La gran N] \nCualquier Otro Numero sera Microsoft."<<endl;
 	cin>>opcion;
 
@@ -148,8 +156,8 @@ void User::addConsole(vector<Console*> consoles){
 		cout<<"Que modelo desea ingresar "<<endl;
 		cout<<"1.xbox\n2.xbox 360\n3.xboxOne\n...[Si elige otro numero se agregara xbox por defecto]"<<endl;
 		cin>>opcion;
-		
-		if(opcion == 1){
+		//Cambiarno
+		/*if(opcion == 1){
 			model = "xbox";
 			consoles.push_back(new Microsoft(year , model , condition , serialNumber , price));			
 		}else if(opcion == 2){
@@ -161,37 +169,57 @@ void User::addConsole(vector<Console*> consoles){
 		}else{
 			model = "xbox";
 			consoles.push_back(new Microsoft(year , model , condition , serialNumber , price));
+		}*/
+		if(opcion == 1){
+			model = "xbox";			
+		}else if(opcion == 2){
+			model = "xbox 360";
+		}else if(opcion == 3){
+			model = "xbox One";
+		}else{
+			model = "xbox";
 		}
+		//Agregando
+		for (int i = 0; i < cantidadConsolas; ++i){	
+			cout<<"Ingrese el numero de serie"<<endl;
+			cin>>serialNumber;
+			serialNumber = asignarNumeroSerial(consoles , serialNumber);
+			//Agregando
+			consoles.push_back(new Microsoft(year , model , condition , serialNumber , price));
+		}
+	//Modelos para Play		
 	}else if(opcion == 2){
 		cout<<"Que modelo desea ingresar"<<endl;
 		cout<<"1.Play Station 1\n2.Play Station 2\n3.Play Station 3\n4.Play Station 4\n5.PSP\n6.PS Vita"<<endl;
 		cout<<"...[Si elige otra opcion se agregara una Play Station por defecto]"<<endl;
 		cin>>opcion;
+		
 		if(opcion == 1){
 			model = "Play Station";
-			consoles.push_back(new Sony(year , model , condition , serialNumber , price));
 		}else if(opcion == 2){
 			model = "Play Station 2";
-			consoles.push_back(new Sony(year , model , condition , serialNumber , price));
 		}else if(opcion == 3){
 			model = "Play station 3";
-			consoles.push_back(new Sony(year , model , condition , serialNumber , price));
 		}else if(opcion == 4){
 			model = "Play Station 4";
-			consoles.push_back(new Sony(year , model , condition , serialNumber , price));
 		}else if(opcion == 5){
 			model = "PSP";
-			consoles.push_back(new Sony(year , model , condition , serialNumber , price));
 		}else if(opcion == 6){
 			model = "PS Vita";
-			consoles.push_back(new Sony(year , model , condition , serialNumber , price));
 		}else {
 			model = "Play Station";
-			consoles.push_back(new Sony(year , model , condition , serialNumber , price));
 		}
 
+		//Agregando
+		for (int i = 0; i < cantidadConsolas; ++i){
+			cout<<"Ingrese el numero de serie"<<endl;
+			cin>>serialNumber;
+			serialNumber = asignarNumeroSerial(consoles , serialNumber);
+			consoles.push_back(new Sony(year , model , condition , serialNumber , price));
+		}
+		
+	//Modelo para Ninetendo	
 	}else if (opcion == 3){
-
 		cout<<"Que modelo desea ingresar:"<<endl;
 		cout<<" 1.Nintendo Entertainment System \n2.Super Nintendo Entertainment System \n3.Nintendo 64 \n4.Nintendo Gamecube"<<endl; 
 		cout<<"\n5.Nintendo Wii \n6.Nintendo Wii U \n7.Nintendo Switch \n8.Gameboy \n9.Gameboy Colors \n10.Gameboy Advance \n11.Nintendo DS \n12.Nintendo DSi \n13.Nintendo 3DS \n14.Nintendo New 3DS"<<endl;
@@ -200,68 +228,66 @@ void User::addConsole(vector<Console*> consoles){
 
 		if(opcion == 1){
 			model = "NES";
-			consoles.push_back(new Nintendo(year , model , condition , serialNumber , price));
 		}else if(opcion == 2){
 			model = "SNES";
-			consoles.push_back(new Nintendo(year , model , condition , serialNumber , price));
 		}else if(opcion == 3){
 			model = "N64";
-			consoles.push_back(new Nintendo(year , model , condition , serialNumber , price));
 		}else if(opcion == 4){
 			model = "Gamecube";
-			consoles.push_back(new Nintendo(year , model , condition , serialNumber , price));
 		}else if(opcion == 5){
 			model = "WII";
-			consoles.push_back(new Nintendo(year , model , condition , serialNumber , price));
 		}else if(opcion == 6){
 			model = "WII U";
-			consoles.push_back(new Nintendo(year , model , condition , serialNumber , price));
 		}else if(opcion == 7){
 			model = "SWITCH";
-			consoles.push_back(new Nintendo(year , model , condition , serialNumber , price));
 		}else if(opcion == 8){
 			model = "Gameboy";
-			consoles.push_back(new Nintendo(year , model , condition , serialNumber , price));
 		}else if(opcion == 9){
 			model = "Gameboy Colors";
-			consoles.push_back(new Nintendo(year , model , condition , serialNumber , price));
 		}else if(opcion == 10){
 			model = "Gameboy advance";
-			consoles.push_back(new Nintendo(year , model , condition , serialNumber , price));
 		}else if(opcion == 11){
 			model = "DS";
-			consoles.push_back(new Nintendo(year , model , condition , serialNumber , price));
 		}else if(opcion == 12){
 			model = "DSI";
-			consoles.push_back(new Nintendo(year , model , condition , serialNumber , price));
 		}else if(opcion == 13){
 			model = "3DS";
-			consoles.push_back(new Nintendo(year , model , condition , serialNumber , price));
 		}else if(opcion == 14){
 			model = "New 3DS";
-			consoles.push_back(new Nintendo(year , model , condition , serialNumber , price));
 		}else{
 			model = "NES";
-			consoles.push_back(new Nintendo(year , model , condition , serialNumber , price));
 		}
 
+		//Agregando
+		for (int i = 0; i < cantidadConsolas; ++i){
+			cout<<"Ingrese el numero de serie"<<endl;
+			cin>>serialNumber;
+			serialNumber = asignarNumeroSerial(consoles , serialNumber);
+			consoles.push_back(new Nintendo(year , model , condition , serialNumber , price));
+		}
+		
+	//Modelos por defecto para Xbox	
 	}else{
 		cout<<"Que modelo desea ingresar "<<endl;
 		cout<<"1.xbox\n2.xbox 360\n3.xboxOne\n...[Si elige otro numero se agregara xbox por defecto]"<<endl;
 		cin>>opcion;
 		if(opcion == 1){
-			model = "xbox";
-			consoles.push_back(new Microsoft(year , model , condition , serialNumber , price));			
+			model = "xbox";			
 		}else if(opcion == 2){
 			model = "xbox 360";
-			consoles.push_back(new Microsoft(year , model , condition , serialNumber , price));
 		}else if(opcion == 3){
 			model = "xbox One";
-			consoles.push_back(new Microsoft(year , model , condition , serialNumber , price));
 		}else{
 			model = "xbox";
+		}
+		//Agregando
+		for (int i = 0; i < cantidadConsolas; ++i){
+			cout<<"Ingrese el numero de serie"<<endl;
+			cin>>serialNumber;
+			serialNumber = asignarNumeroSerial(consoles , serialNumber);	
 			consoles.push_back(new Microsoft(year , model , condition , serialNumber , price));
 		}
+		
 	}
 	
 }//Que pedo con esta llave
