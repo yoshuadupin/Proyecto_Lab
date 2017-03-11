@@ -31,16 +31,18 @@ string UserSeller::getCheckOut() {
 
 Sale* UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 	//Hacer un constructor 
-	char comprarMas;
+	char comprarMas = 's';
+	int opcion;
+	//Variable de Ventas
 	Sale* sale = new Sale();
 	string cliente;
-	int opcion;
 	string modelo;
 
 	cout<<"Ingrese el nombre del cliente"<<endl; 
 	cin.ignore();	
 	getline(cin , cliente);
-	do{
+	//Falta validar que no se acaban las consolas y los juegos 
+	while(games.size() != 0 && consoles.size() != 0  && (comprarMas == 's' || comprarMas == 'S')){
 		cout<<"Que desea comprar 1.Consolas o 2.Juegos:"<<endl;
 		cin>>opcion;
 		//Opcion para consola
@@ -399,12 +401,12 @@ Sale* UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 		}//Fin else de venta juegos
 		cout<<"Desea Seguir coprando consolas:[s/n]"<<endl;
 		cin>>comprarMas;
-	}while(comprarMas != 's' || comprarMas != 'S');
+	}//Fin WHILE
 
 	sale->setClientName(cliente);
 	sale->setUserName(this->getName());
 	sale->setFinalHour(this->getHour());
-	
+
 	return sale;
 }//Fin metodo
 
