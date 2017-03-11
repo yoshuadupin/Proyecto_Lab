@@ -3,6 +3,8 @@
 #include "user.h"
 #include "Sale.h"
 #include <typeinfo>
+#include <sstream>
+
 
 using namespace std;
 
@@ -24,7 +26,7 @@ class UserSeller : public User {
 		// Destructor.
 		~UserSeller();
 		//Hacer una venta 
-		void makeSale(vector<Game*> , vector<Console*>);
-
+		Sale* makeSale(vector<Game*> , vector<Console*>);
+		string getHour();
 
 };

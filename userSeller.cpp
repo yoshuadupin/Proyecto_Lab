@@ -72,7 +72,7 @@ Sale* UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 					if(typeid(*consoles[i]) == typeid(Console) && consoles[i]->getModel() == modelo){
 						cout<<"Indice:"<<i<<endl;
 						cout<<"Modelo:"<<consoles[i]->getModel()<<endl;
-						cout<<"Ano:"<<consoles[i]->getCondition()<<endl;
+						cout<<"Estado:"<<consoles[i]->getCondition()<<endl;
 						cout<<"Precio:"<<consoles[i]->getPrice()<<endl;
 						cout<<"Numero de serie:"<<consoles[i]->getSerialNumber()<<endl;
 						cout<<endl;
@@ -84,7 +84,7 @@ Sale* UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 				if(opcion<consoles.size() && opcion>=0){
 					cout<<"Indice:"<<opcion<<endl;
 					cout<<"Modelo:"<<consoles[opcion]->getModel()<<endl;
-					cout<<"Ano:"<<consoles[opcion]->getCondition()<<endl;
+					cout<<"Estado:"<<consoles[opcion]->getCondition()<<endl;
 					cout<<"Precio:"<<consoles[opcion]->getPrice()<<endl;
 					cout<<"Numero de serie:"<<consoles[opcion]->getSerialNumber()<<endl;
 					cout<<endl;
@@ -132,7 +132,7 @@ Sale* UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 					if(typeid(*consoles[i]) == typeid(Sony) && consoles[i]->getModel() == modelo){
 						cout<<"Indice:"<<i<<endl;
 						cout<<"Modelo:"<<consoles[i]->getModel()<<endl;
-						cout<<"Ano:"<<consoles[i]->getCondition()<<endl;
+						cout<<"Estado:"<<consoles[i]->getCondition()<<endl;
 						cout<<"Precio:"<<consoles[i]->getPrice()<<endl;
 						cout<<"Numero de serie:"<<consoles[i]->getSerialNumber()<<endl;
 						cout<<endl;
@@ -144,7 +144,7 @@ Sale* UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 				if(opcion<consoles.size() && opcion>=0){
 					cout<<"Indice:"<<opcion<<endl;
 					cout<<"Modelo:"<<consoles[opcion]->getModel()<<endl;
-					cout<<"Ano:"<<consoles[opcion]->getCondition()<<endl;
+					cout<<"Estado:"<<consoles[opcion]->getCondition()<<endl;
 					cout<<"Precio:"<<consoles[opcion]->getPrice()<<endl;
 					cout<<"Numero de serie:"<<consoles[opcion]->getSerialNumber()<<endl;
 					cout<<endl;
@@ -202,7 +202,7 @@ Sale* UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 					if(typeid(*consoles[i]) == typeid(Sony) && consoles[i]->getModel() == modelo){
 						cout<<"Indice:"<<i<<endl;
 						cout<<"Modelo:"<<consoles[i]->getModel()<<endl;
-						cout<<"Ano:"<<consoles[i]->getCondition()<<endl;
+						cout<<"Estado:"<<consoles[i]->getCondition()<<endl;
 						cout<<"Precio:"<<consoles[i]->getPrice()<<endl;
 						cout<<"Numero de serie:"<<consoles[i]->getSerialNumber()<<endl;
 						cout<<endl;
@@ -214,7 +214,7 @@ Sale* UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 				if(opcion<consoles.size() && opcion>=0){
 					cout<<"Indice:"<<opcion<<endl;
 					cout<<"Modelo:"<<consoles[opcion]->getModel()<<endl;
-					cout<<"Ano:"<<consoles[opcion]->getCondition()<<endl;
+					cout<<"Estado:"<<consoles[opcion]->getCondition()<<endl;
 					cout<<"Precio:"<<consoles[opcion]->getPrice()<<endl;
 					cout<<"Numero de serie:"<<consoles[opcion]->getSerialNumber()<<endl;
 					cout<<endl;
@@ -238,10 +238,10 @@ Sale* UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 				for (int i = 0; i < games.size(); ++i){
 					if(typeid(*games[i]) == typeid(microsoft)){
 						cout<<"Indice:"<<i<<endl;
-						cout<<"Nombre:"<<games->getName()<<endl;
-						cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+						cout<<"Nombre:"<<games[i]->getName()<<endl;
+						cout<<"Consola:"<<games[i]->getConsole()->getModel()<<endl;
 						cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
-						cout<<"Ano:"<<games[i]->getCondition()<<endl;
+						cout<<"Estado:"<<games[i]->getStatus()<<endl;
 						cout<<"Precio:"<<games[i]->getPrice()<<endl;
 						cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
 						cout<<endl;
@@ -253,10 +253,10 @@ Sale* UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 				for (int i = 0; i < games.size(); ++i){
 					if(typeid(*games[i]) == typeid(sony)){
 						cout<<"Indice:"<<i<<endl;
-						cout<<"Nombre:"<<games->getName()<<endl;
-						cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+						cout<<"Nombre:"<<games[i]->getName()<<endl;
+						cout<<"Consola:"<<games[i]->getConsole()->getModel()<<endl;
 						cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
-						cout<<"Ano:"<<games[i]->getCondition()<<endl;
+						cout<<"Estado:"<<games[i]->getStatus()<<endl;
 						cout<<"Precio:"<<games[i]->getPrice()<<endl;
 						cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
 						cout<<endl;
@@ -268,10 +268,10 @@ Sale* UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 				for (int i = 0; i < games.size(); ++i){
 					if(typeid(*games[i]) == typeid(nintendo)){
 						cout<<"Indice:"<<i<<endl;
-						cout<<"Nombre:"<<games->getName()<<endl;
-						cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+						cout<<"Nombre:"<<games[i]->getName()<<endl;
+						cout<<"Consola:"<<games[i]->getConsole()->getModel()<<endl;
 						cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
-						cout<<"Ano:"<<games[i]->getCondition()<<endl;
+						cout<<"Estado:"<<games[i]->getStatus()<<endl;
 						cout<<"Precio:"<<games[i]->getPrice()<<endl;
 						cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
 						cout<<endl;
@@ -283,10 +283,10 @@ Sale* UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 				for (int i = 0; i < games.size(); ++i){
 					if(typeid(*games[i]) == typeid(Bandai)){
 						cout<<"Indice:"<<i<<endl;
-						cout<<"Nombre:"<<games->getName()<<endl;
-						cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+						cout<<"Nombre:"<<games[i]->getName()<<endl;
+						cout<<"Consola:"<<games[i]->getConsole()->getModel()<<endl;
 						cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
-						cout<<"Ano:"<<games[i]->getCondition()<<endl;
+						cout<<"Estado:"<<games[i]->getStatus()<<endl;
 						cout<<"Precio:"<<games[i]->getPrice()<<endl;
 						cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
 						cout<<endl;
@@ -298,10 +298,10 @@ Sale* UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 				for (int i = 0; i < games.size(); ++i){
 					if(typeid(*games[i]) == typeid(Konami)){
 						cout<<"Indice:"<<i<<endl;
-						cout<<"Nombre:"<<games->getName()<<endl;
-						cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+						cout<<"Nombre:"<<games[i]->getName()<<endl;
+						cout<<"Consola:"<<games[i]->getConsole()->getModel()<<endl;
 						cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
-						cout<<"Ano:"<<games[i]->getCondition()<<endl;
+						cout<<"Estado:"<<games[i]->getStatus()<<endl;
 						cout<<"Precio:"<<games[i]->getPrice()<<endl;
 						cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
 						cout<<endl;
@@ -313,10 +313,10 @@ Sale* UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 				for (int i = 0; i < games.size(); ++i){
 					if(typeid(*games[i]) == typeid(SquareEnix)){
 						cout<<"Indice:"<<i<<endl;
-						cout<<"Nombre:"<<games->getName()<<endl;
-						cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+						cout<<"Nombre:"<<games[i]->getName()<<endl;
+						cout<<"Consola:"<<games[i]->getConsole()->getModel()<<endl;
 						cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
-						cout<<"Ano:"<<games[i]->getCondition()<<endl;
+						cout<<"Estado:"<<games[i]->getStatus()<<endl;
 						cout<<"Precio:"<<games[i]->getPrice()<<endl;
 						cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
 						cout<<endl;
@@ -328,10 +328,10 @@ Sale* UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 				for (int i = 0; i < games.size(); ++i){
 					if(typeid(*games[i]) == typeid(ElectronicArts)){
 						cout<<"Indice:"<<i<<endl;
-						cout<<"Nombre:"<<games->getName()<<endl;
-						cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+						cout<<"Nombre:"<<games[i]->getName()<<endl;
+						cout<<"Consola:"<<games[i]->getConsole()->getModel()<<endl;
 						cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
-						cout<<"Ano:"<<games[i]->getCondition()<<endl;
+						cout<<"Estado:"<<games[i]->getStatus()<<endl;
 						cout<<"Precio:"<<games[i]->getPrice()<<endl;
 						cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
 						cout<<endl;
@@ -339,12 +339,12 @@ Sale* UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 				}
 			}else if(opcion == 8){
 				for (int i = 0; i < games.size(); ++i){
-					if(typeid(*games[i]) == typeid(sega)){
+					if(typeid(*games[i]) == typeid(Sega)){
 						cout<<"Indice:"<<i<<endl;
-						cout<<"Nombre:"<<games->getName()<<endl;
-						cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+						cout<<"Nombre:"<<games[i]->getName()<<endl;
+						cout<<"Consola:"<<games[i]->getConsole()->getModel()<<endl;
 						cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
-						cout<<"Ano:"<<games[i]->getCondition()<<endl;
+						cout<<"Estado:"<<games[i]->getStatus()<<endl;
 						cout<<"Precio:"<<games[i]->getPrice()<<endl;
 						cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
 						cout<<endl;
@@ -355,10 +355,10 @@ Sale* UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 				for (int i = 0; i < games.size(); ++i){
 					if(typeid(*games[i]) == typeid(Ubisoft)){
 						cout<<"Indice:"<<i<<endl;
-						cout<<"Nombre:"<<games->getName()<<endl;
-						cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+						cout<<"Nombre:"<<games[i]->getName()<<endl;
+						cout<<"Consola:"<<games[i]->getConsole()->getModel()<<endl;
 						cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
-						cout<<"Ano:"<<games[i]->getCondition()<<endl;
+						cout<<"Estado:"<<games[i]->getStatus()<<endl;
 						cout<<"Precio:"<<games[i]->getPrice()<<endl;
 						cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
 						cout<<endl;
@@ -370,10 +370,10 @@ Sale* UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 				for (int i = 0; i < games.size(); ++i){
 					if(typeid(*games[i]) == typeid(microsoft)){
 						cout<<"Indice:"<<i<<endl;
-						cout<<"Nombre:"<<games->getName()<<endl;
-						cout<<"Consola:"<<games->getConsole()->getModel()<<endl;
+						cout<<"Nombre:"<<games[i]->getName()<<endl;
+						cout<<"Consola:"<<games[i]->getConsole()->getModel()<<endl;
 						cout<<"Numero de Jugadores:"<<games[i]->getNumberPlayers()<<endl;
-						cout<<"Ano:"<<games[i]->getCondition()<<endl;
+						cout<<"Estado:"<<games[i]->getStatus()<<endl;
 						cout<<"Precio:"<<games[i]->getPrice()<<endl;
 						cout<<"Numero de serie:"<<games[i]->getSerialNumber()<<endl;
 						cout<<endl;
@@ -385,12 +385,12 @@ Sale* UserSeller::makeSale(vector<Game*> games , vector<Console*> consoles){
 			cin>>opcion;
 			if(opcion<games.size() && opcion>=0){
 				cout<<"Indice:"<<opcion<<endl;
-				cout<<"Modelo:"<<games[opcion]->getModel()<<endl;
-				cout<<"Ano:"<<games[opcion]->getCondition()<<endl;
+				cout<<"Consola:"<<games[opcion]->getConsole()->getModel()<<endl;
+				cout<<"Estado:"<<games[opcion]->getStatus()<<endl;
 				cout<<"Precio:"<<games[opcion]->getPrice()<<endl;
 				cout<<"Numero de serie:"<<games[opcion]->getSerialNumber()<<endl;
 				cout<<endl;
-				sale->setConsole(games[opcion]);
+				sale->setGame(games[opcion]);
 					//liberando memoria
 				delete games[opcion];
 					//Borrando Elemento del arreglo 
