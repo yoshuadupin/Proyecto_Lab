@@ -18,6 +18,7 @@ class Sale {
 		string finalHour;
 		string userName;
 		double subtotal;
+		int sales;
 
 	public:
 		// Constructor.
@@ -32,6 +33,7 @@ class Sale {
 		void setSubtotal(double);
 		void setConsoles(vector<Console*>);
 		void setGames(vector<Game*>);
+		void setSale(int);
 		// Getters.
 		string getClientName();
 		Console* getConsole(int);
@@ -41,6 +43,7 @@ class Sale {
 		double getSubtotal();
 		vector<Console*> getConsoles();
 		vector<Game*> getGames();
+		int getSales();
 		// Destructor.
 		~Sale();
 };

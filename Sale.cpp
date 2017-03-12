@@ -18,11 +18,12 @@ Sale::Sale(){
 	this -> finalHour = "";
 	this -> userName = "";
 	this -> subtotal = 0;
+	this -> sales = 0;
 }
 
 // Setters.
 
-void Sale::setClientName(string) {
+void Sale::setClientName(string clientName) {
 	this -> clientName = clientName;
 }
 
@@ -43,7 +44,7 @@ void Sale::setUserName(string userName) {
 }
 
 void Sale::setSubtotal(double subtotal) {
-	this -> subtotal = subtotal;
+	this -> subtotal = subtotal * 1.15;
 }
 
 void Sale::setConsoles(vector<Console*> consoles) {
@@ -52,6 +53,10 @@ void Sale::setConsoles(vector<Console*> consoles) {
 
 void Sale::setGames(vector<Game*> games) {
 	this -> games = games;
+}
+
+void Sale::setSale(int sales) {
+	this -> sales = sales;
 }
 
 // Getters.
@@ -86,6 +91,10 @@ vector<Console*> Sale::getConsoles() {
 
 vector<Game*> Sale::getGames() {
 	return this -> games;
+}
+
+int Sale::getSales() {
+	return sales;
 }
 
 // Destructor.

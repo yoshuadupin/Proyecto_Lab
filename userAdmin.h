@@ -4,9 +4,12 @@
 
 #include "user.h"
 
+
 class UserAdmin : public User {
 	private:
 		int password;
+		vector<Console*> consoles;
+		vector<Game*> games;
 
 	public:
 		// Constructor.
@@ -15,11 +18,13 @@ class UserAdmin : public User {
 		void setPassword(int);
 		// Getter.
 		int getPassword();
+		vector<Console*> getConsoles();
+		vector<Game*> getGames();
 		// Modificar y eliminar.
-		void modifyGame(vector<Game*> , int);
-		void modifyConsole(vector<Console*> , int);
-		void deleteGame(vector<Game*> , int);
-		void deleteConsole(vector<Console*> ,int);
+		vector<Game*> modifyGame(vector<Game*> , int);
+		vector<Console*> modifyConsole(vector<Console*> , int);
+		vector<Game*> deleteGame(vector<Game*> , int);
+		vector<Console*> deleteConsole(vector<Console*> ,int);
 		//Metodos para elegir el modelo
 		string elegirModelo();
 };

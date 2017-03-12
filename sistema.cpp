@@ -27,9 +27,11 @@ string getDate();
 // Obtiene la hora.
 string getHour();
 // Crea el userLog.
-void doUserLog(UserSeller*);
-// Devuelve usuario (administrador o vendedor).
+void doUserLog(Sale*, UserSeller*);
+// Devuelve opción del usuario (administrador o vendedor).
 int getUserOption();
+// Devuelve eliminar o modificar del administrador.
+int getAdminOption();
 
 using namespace std;
 
@@ -39,35 +41,67 @@ int main() {
 	string name, checkIn, checkOut;
 	int option, password;
 
-	option = getUserOption();
-
 	consoles = initializeConsoles();
 	videoGames = initializeVideoGames();
 
 	// TODO: Validar si es admin, que el password sea el mismo al leer el binario.
 
-	cout << "Ingrese nombre del usuario: ";
-	cin >> name;
-
 	User* user;
 
-	if (option == 1) { // Administrador.
-		cout << "Ingrese password del administrador: ";
-		cin >> password;
+	do {
+		cout << "Ingrese nombre del usuario: ";
+		cin >> name;
 
-		UserAdmin* user = new UserAdmin(name, password);
-	} else { // Vendedor
-		UserSeller* user = new UserSeller(name, checkIn, checkOut);
-		
-		user -> setCheckIn(getHour());
+		option = getUserOption();
 
-		Sale* sale = user -> makeSale(consoles, videoGames);
+		if (option == 1) { // Administrador.
+			int position;
+			
+			cout << "Ingrese password del administrador: ";
+			cin >> password;
 
-		sale -> setClientName(name);
-		user -> setCheckOut(getHour());
-		doUserLog(user);
-		doTicket(sale, user);
-	}
+			UserAdmin* user = new UserAdmin(name, password);
+
+			option = getAdminOption();
+
+			if (option == 1) { // Eliminar consola.
+				cout << "Ingrese posición a eliminar: ";
+				cin >> position;
+
+				consoles = user -> deleteConsole(consoles, position);
+			} else if (option == 2) { // Eliminar juego.
+				cout << "Ingrese posición a eliminar: ";
+				cin >> position;
+				
+				videoGames = user -> deleteGame(videoGames, position);
+			} else if (option == 3) { // Modificar consola.
+				cout << "Ingrese posición a modificar: ";
+				cin >> position;
+				
+				consoles = user -> modifyConsole(consoles, position);
+			} else if (option == 4) { // Modificar juego.
+				cout << "Ingrese posición a modificar: ";
+				cin >> position;
+
+				videoGames = user -> modifyGame(videoGames, position);
+			} else {
+				cout << "Opción inválida!... Regresás al main, por maule .-." << endl;
+				option = 3;
+			}
+
+			// Escribir al archivo binario para que guarde todo.
+		} else if (option == 2) { // Vendedor.
+			UserSeller* user = new UserSeller(name, checkIn, checkOut);
+			
+			user -> setCheckIn(getHour());
+
+			Sale* sale = user -> makeSale(consoles, videoGames);
+
+			user -> setCheckOut(getHour());
+			doUserLog(sale, user);
+			doTicket(sale, user);
+		}
+	} while (option != 3);
 
 	return 0;
 }
@@ -290,7 +324,7 @@ string getHour() {
 	return actualHour;
 }
 
-void doUserLog(UserSeller* user) {
+void doUserLog(Sale* sale, UserSeller* user) {
 	ofstream file;
 	stringstream stringStream;
 	string myString;
@@ -304,15 +338,24 @@ void doUserLog(UserSeller* user) {
 	file << "NOMBRE: " << user -> getName() << endl;
 	file << "HORA DE ENTRADA: " << user -> getCheckIn() << endl;
 	file << "HORA DE SALIDA: " << user -> getCheckOut() << endl << endl;
-	file << "CANTIDAD DE ARTÍCULOS VENDIDOS: " << (user -> getConsoles().size() + user -> getGames().size()) << endl;
-	file << "CANTIDAD DE DINERO GENERADO: " << 0 << endl;
+	file << "CANTIDAD DE ARTÍCULOS VENDIDOS: " << sale -> getSales() << endl;
+	file << "CANTIDAD DE DINERO GENERADO: " << sale -> getSubtotal() << endl;
 	// TODO: Crear archivo con información de ventas del usuario.
 }
 
 int getUserOption() {
 	int option;
 
-	cout << "Ingrese tipo de usuario: \n1) Administrador. \n2) Vendedor. \nOpción: ";
+	cout << "Ingrese tipo de usuario: \n1. Administrador \n2. Vendedor \n3. Salir \nOpción: ";
+	cin >> option;
+
+	return option;
+}
+
+int getAdminOption() {
+	int option;
+
+	cout << "Qué desea hacer?: \n1. Eliminar consola \n2. Eliminar juego \n3. Modificar consola \n4. Modificar juego \nOpción: ";
 	cin >> option;
 
 	return option;
