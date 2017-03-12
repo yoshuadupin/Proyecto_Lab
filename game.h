@@ -8,6 +8,7 @@
 using namespace std;
 
 class Game {
+		
 	protected:
 		string name;
 		int year;

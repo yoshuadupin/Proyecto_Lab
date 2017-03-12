@@ -55,7 +55,7 @@ Sale* UserSeller::makeSale(vector<Console*> consoles, vector<Game*> games) {
 			cin >> opcion;
 			
 			if (opcion == 1) {
-				//Para Microsoft
+				//Para microsoft
 				cout << "Qué modelo de consola de Microsoft desea comprar?: ";
 				cout << "1. XBOX\n2. XBOX 360\n3. XBOX One\nOpción: ";
 				cin >> opcion;
@@ -74,6 +74,7 @@ Sale* UserSeller::makeSale(vector<Console*> consoles, vector<Game*> games) {
 				cout << "Inventario de las consolas: " << endl;
 
 				for (int i = 0; i < consoles.size(); ++i) {
+					cout<<typeid(*consoles[i]).name()<<endl;
 					if (typeid(*consoles[i]) == typeid(Console) && consoles[i] -> getModel() == modelo) {
 						cout << "Índice: "<< i << endl;
 						cout << "Modelo: " << consoles[i] -> getModel() << endl;

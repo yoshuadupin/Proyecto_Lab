@@ -180,22 +180,22 @@ vector<Console*> initializeConsoles() {
 	vector<Console*> consoles;
 
 	for (int i = 0; i < 10; ++i) { // Nintendo 64.
-		Console* console = new Console(2004, "Nintendo 64", "Good", i + 1, 1100);
+		Console* console = new Nintendo(2004, "Nintendo 64", "Good", i + 1, 1100);
 		consoles.push_back(console);
 	}
 
 	for (int i = 10; i < 20; ++i) { // Play Station.
-		Console* console = new Console(2005, "Play Station", "Good", i + 1, 1400);
+		Console* console = new Sony(2005, "Play Station", "Good", i + 1, 1400);
 		consoles.push_back(console);
 	}
 
 	for (int i = 20; i < 30; ++i) { // Wii.
-		Console* console = new Console(2007, "Wii", "Good", i + 1, 1350);
+		Console* console = new Nintendo(2007, "Wii", "Good", i + 1, 1350);
 		consoles.push_back(console);
 	}
 
 	for (int i = 30; i < 40; ++i) { // Nintendo Gamecube.
-		Console* console = new Console(2005, "Nintendo Gamecube", "Good", i + 1, 1200);
+		Console* console = new Nintendo(2005, "Nintendo Gamecube", "Good", i + 1, 1200);
 		consoles.push_back(console);
 	}
 	
@@ -206,22 +206,22 @@ vector<Game*> initializeVideoGames() {
 	vector<Game*> videoGames;
 
 	for (int i = 0; i < 30; ++i) { // Mario Bros.
-		Console* console = new Console(2004, "Nintendo 64", "Good", i + 1, 1100);
-		videoGames.push_back(new Game("Mario Bros " + (i + 1), 2005, console, 4, "Entertainment", "Good", i + 1, 250));
+		Console* console = new Nintendo(2004, "Nintendo 64", "Good", i + 1, 1100);
+		videoGames.push_back(new Konami("Mario Bros " + (i + 1), 2005, console, 4, "Entertainment", "Good", i + 1, 250));
 	}
 
 	for (int i = 30; i < 60; ++i) { // Donkey Kong.
-		Console* console = new Console(2005, "Play Station", "Good", i + 1, 1400);
-		videoGames.push_back(new Game("Donkey Kong " + (i + 1), 2005, console, 3, "Entertainment", "Good", i + 1, 290));
+		Console* console = new Nintendo(2005, "Play Station", "Good", i + 1, 1400);
+		videoGames.push_back(new Sega("Donkey Kong " + (i + 1), 2005, console, 3, "Entertainment", "Good", i + 1, 290));
 	}
 
 	for (int i = 60; i < 90; ++i) { // Need For Speed.
-		Console* console = new Console(2007, "Wii", "Good", i + 1, 1350);
-		videoGames.push_back(new Game("Need For Speed " + (i + 1), 2007, console, 4, "Races", "Good", i + 1, 350));
+		Console* console = new Sony(2007, "Wii", "Good", i + 1, 1350);
+		videoGames.push_back(new Ubisoft("Need For Speed " + (i + 1), 2007, console, 4, "Races", "Good", i + 1, 350));
 	}
 
 	for (int i = 90; i < 120; ++i) { // Final Fantasy.
-		Console* console = new Console(2005, "Nintendo Gamecube", "Good", i + 1, 1200);
+		Console* console = new Microsoft(2005, "Nintendo Gamecube", "Good", i + 1, 1200);
 		videoGames.push_back(new Game("Final Fantasy " + (i + 1), 2003, console, 1, "Adventure", "Good", i + 1, 230));
 	}
 
