@@ -32,6 +32,8 @@ vector<Game*> UserAdmin::getGames() {
 // Métodos de administración.
 
 vector<Game*> UserAdmin::deleteGame(vector<Game*> games, int pos) {
+	
+
 	if (pos >= games.size() || pos < 0) {
 		cout << "No se encuentra en el vector";
 	} else {
@@ -44,6 +46,15 @@ vector<Game*> UserAdmin::deleteGame(vector<Game*> games, int pos) {
 }
 
 vector<Console*> UserAdmin::deleteConsole(vector<Console*> consoles, int pos) {
+	for (int i = 0; i < consoles.size(); ++i){
+		cout << "Índice: "<< i << endl;
+		cout << "Modelo: " << consoles[i] -> getModel() << endl;
+		cout << "Estado: " << consoles[i] -> getCondition() << endl;
+		cout << "Precio: " << consoles[i] -> getPrice() << endl;
+		cout << "Número de serie: " << consoles[i] -> getSerialNumber() << endl;
+		cout << endl;
+	}
+
 	if (pos >= consoles.size() || pos < 0) {
 		cout << "No se encuentra en el vector";
 	} else {
@@ -56,6 +67,7 @@ vector<Console*> UserAdmin::deleteConsole(vector<Console*> consoles, int pos) {
 }
 
 vector<Game*> UserAdmin::modifyGame(vector<Game*> games, int pos) {
+
 	string name;
 	int year;
 	Console* console = NULL;
@@ -109,6 +121,7 @@ vector<Game*> UserAdmin::modifyGame(vector<Game*> games, int pos) {
 }
 
 vector<Console*> UserAdmin::modifyConsole(vector<Console*> consoles, int pos) {
+	
 	int year, opcion = 1; // TODO: CAMBIAR OPCION.
 	string model;
 	string condition;

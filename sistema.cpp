@@ -33,6 +33,8 @@ int getUserOption();
 // Devuelve eliminar o modificar del administrador.
 int getAdminOption();
 
+void printVectorGame(vector<Game*>);
+void printVectorConsole(vector<Console*> consoles);
 using namespace std;
 
 int main() {
@@ -359,4 +361,31 @@ int getAdminOption() {
 	cin >> option;
 
 	return option;
+}
+
+
+void printVectorGame(vector<Game*> games){
+	for (int i = 0; i < games.size(); ++i){
+		for (int i = 0; i < games.size(); ++i){
+			cout << "Índice: "<< i << endl;
+			cout << "Nombre: " << games[i] -> getName() << endl;
+			cout << "Consola: " << games[i] -> getConsole()->getModel() << endl;
+			cout << "Número de Jugadores: " << games[i] -> getNumberPlayers() << endl;
+			cout << "Estado: " << games[i] -> getStatus() << endl;
+			cout << "Precio: " << games[i] -> getPrice() << endl;
+			cout << "Número de serie: " << games[i] -> getSerialNumber() << endl;
+			cout << endl;	
+		}
+	}
+}
+
+void printVectorConsole(vector<Console*> consoles){
+	for (int i = 0; i < consoles.size(); ++i){
+		cout << "Índice: "<< i << endl;
+		cout << "Modelo: " << consoles[i] -> getModel() << endl;
+		cout << "Estado: " << consoles[i] -> getCondition() << endl;
+		cout << "Precio: " << consoles[i] -> getPrice() << endl;
+		cout << "Número de serie: " << consoles[i] -> getSerialNumber() << endl;
+		cout << endl;
+	}
 }
