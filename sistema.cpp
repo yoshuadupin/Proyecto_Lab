@@ -27,7 +27,7 @@ string getDate();
 // Obtiene la hora.
 string getHour();
 // Crea el userLog.
-void doUserLog(Sale*, UserSeller*);
+void doUserLog(int , double, UserSeller*);
 // Devuelve opción del usuario (administrador o vendedor).
 int getUserOption();
 // Devuelve eliminar o modificar del administrador.
@@ -42,17 +42,21 @@ int main() {
 	vector<Game*> videoGames;
 	string name, checkIn, checkOut;
 	int option, password;
-
+	int objetosVendidos = 0;
+	double subTotalVendedor= 0;
 	consoles = initializeConsoles();
 	videoGames = initializeVideoGames();
 
 	// TODO: Validar si es admin, que el password sea el mismo al leer el binario.
 
-	User* user;
+	/*User* user;*/
+	UserAdmin* user = new UserAdmin("Dilich", 123);
 
+	cout << "Ingrese nombre del usuario: ";
+	cin >> name;
+	UserSeller* userSeller = new UserSeller(name, checkIn, "");
+	userSeller -> setCheckIn(getHour());
 	do {
-		cout << "Ingrese nombre del usuario: ";
-		cin >> name;
 
 		option = getUserOption();
 
@@ -62,7 +66,6 @@ int main() {
 			cout << "Ingrese password del administrador: ";
 			cin >> password;
 
-			UserAdmin* user = new UserAdmin(name, password);
 
 			option = getAdminOption();
 
@@ -93,18 +96,18 @@ int main() {
 
 			// Escribir al archivo binario para que guarde todo.
 		} else if (option == 2) { // Vendedor.
-			UserSeller* user = new UserSeller(name, checkIn, checkOut);
 			
-			user -> setCheckIn(getHour());
-
-			Sale* sale = user -> makeSale(consoles, videoGames);
-
-			user -> setCheckOut(getHour());
-			doUserLog(sale, user);
-			doTicket(sale, user);
+			Sale* sale = userSeller -> makeSale(consoles, videoGames);
+			doTicket(sale, userSeller);
+			objetosVendidos += sale ->getConsoles().size()+ sale->getGames().size();
+			subTotalVendedor += sale ->getSubtotal();			
+			delete sale;
 		}
 	} while (option != 3);
-
+	userSeller -> setCheckOut(getHour());
+	doUserLog(objetosVendidos,subTotalVendedor , userSeller);
+	delete userSeller;
+	delete user;
 	return 0;
 }
 
@@ -326,7 +329,7 @@ string getHour() {
 	return actualHour;
 }
 
-void doUserLog(Sale* sale, UserSeller* user) {
+void doUserLog(int cant , double subTotal, UserSeller* user) {
 	ofstream file;
 	stringstream stringStream;
 	string myString;
@@ -340,8 +343,8 @@ void doUserLog(Sale* sale, UserSeller* user) {
 	file << "NOMBRE: " << user -> getName() << endl;
 	file << "HORA DE ENTRADA: " << user -> getCheckIn() << endl;
 	file << "HORA DE SALIDA: " << user -> getCheckOut() << endl << endl;
-	file << "CANTIDAD DE ARTÍCULOS VENDIDOS: " << sale -> getSales() << endl;
-	file << "CANTIDAD DE DINERO GENERADO: " << sale -> getSubtotal() << endl;
+	file << "CANTIDAD DE ARTÍCULOS VENDIDOS: " << cant << endl;
+	file << "CANTIDAD DE DINERO GENERADO: " << subTotal << endl;
 	// TODO: Crear archivo con información de ventas del usuario.
 }
 

@@ -82,6 +82,13 @@ string Sale::getUserName() {
 }
 
 double Sale::getSubtotal() {
+	double subtotal = 0;
+	for (int i = 0; i < games.size(); ++i){
+		subtotal += games[i]->getPrice();
+	}
+	for (int i = 0; i < consoles.size(); ++i){
+		subtotal += consoles[i]->getPrice();
+	}
 	return subtotal;
 }
 
