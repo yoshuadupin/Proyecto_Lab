@@ -56,6 +56,20 @@ int main() {
 	cin >> name;
 	UserSeller* userSeller = new UserSeller(name, checkIn, "");
 	userSeller -> setCheckIn(getHour());
+	Console * console = new Nintendo(2004, "Nintendo 64", "Good", 1, 1100);
+	for (int i = 0; i < consoles.size(); ++i) {
+
+		cout<<typeid(console).name()<<endl;
+		cout<<typeid(Microsoft).name()<<endl;
+		if (typeid(*consoles[i]) == typeid(Microsoft)) {
+			cout << "Índice: "<< i << endl;
+			cout << "Modelo: " << consoles[i] -> getModel() << endl;
+			cout << "Estado: " << consoles[i] -> getCondition() << endl;
+			cout << "Precio: " << consoles[i] -> getPrice() << endl;
+			cout << "Número de serie: " << consoles[i] -> getSerialNumber() << endl;
+			cout << endl;
+		}
+	}
 	do {
 
 		option = getUserOption();
@@ -89,9 +103,15 @@ int main() {
 				cin >> position;
 
 				videoGames = user -> modifyGame(videoGames, position);
+			}else if(option == 5){
+				cout<<"Agregara un juego:"<<endl;
+				videoGames =user -> addGame(videoGames);   
+			}else if(option == 6){
+				cout<<"Agregara una consola:"<<endl;
+				consoles = user -> addConsole(consoles);
 			} else {
 				cout << "Opción inválida!... Regresás al main, por maule .-." << endl;
-				option = 3;
+				//option = 3;
 			}
 
 			// Escribir al archivo binario para que guarde todo.
@@ -180,8 +200,8 @@ vector<Console*> initializeConsoles() {
 	vector<Console*> consoles;
 
 	for (int i = 0; i < 10; ++i) { // Nintendo 64.
-		Console* console = new Nintendo(2004, "Nintendo 64", "Good", i + 1, 1100);
-		consoles.push_back(console);
+		 
+		consoles.push_back(new Nintendo(2004, "Nintendo 64", "Good", i + 1, 1100));
 	}
 
 	for (int i = 10; i < 20; ++i) { // Play Station.
@@ -211,16 +231,16 @@ vector<Game*> initializeVideoGames() {
 	}
 
 	for (int i = 30; i < 60; ++i) { // Donkey Kong.
-		Console* console = new Nintendo(2005, "Play Station", "Good", i + 1, 1400);
+		Console* console = new Sony(2005, "Play Station", "Good", i + 1, 1400);
 		videoGames.push_back(new Sega("Donkey Kong " + (i + 1), 2005, console, 3, "Entertainment", "Good", i + 1, 290));
 	}
 
 	for (int i = 60; i < 90; ++i) { // Need For Speed.
-		Console* console = new Sony(2007, "Wii", "Good", i + 1, 1350);
+		Console* console = new Nintendo(2007, "Wii", "Good", i + 1, 1350);
 		videoGames.push_back(new Ubisoft("Need For Speed " + (i + 1), 2007, console, 4, "Races", "Good", i + 1, 350));
 	}
 
-	for (int i = 90; i < 120; ++i) { // Final Fantasy.
+	for (int i = 90; i < 120; ++i) { // RFinal Fantasy.
 		Console* console = new Microsoft(2005, "Nintendo Gamecube", "Good", i + 1, 1200);
 		videoGames.push_back(new Game("Final Fantasy " + (i + 1), 2003, console, 1, "Adventure", "Good", i + 1, 230));
 	}
@@ -345,7 +365,7 @@ void doUserLog(int cant , double subTotal, UserSeller* user) {
 	file << "HORA DE SALIDA: " << user -> getCheckOut() << endl << endl;
 	file << "CANTIDAD DE ARTÍCULOS VENDIDOS: " << cant << endl;
 	file << "CANTIDAD DE DINERO GENERADO: " << subTotal << endl;
-	// TODO: Crear archivo con información de ventas del usuario.
+	// TODO: Crear archivo con información de ventas del ususario.
 }
 
 int getUserOption() {
@@ -359,9 +379,10 @@ int getUserOption() {
 
 int getAdminOption() {
 	int option;
-
-	cout << "Qué desea hacer?: \n1. Eliminar consola \n2. Eliminar juego \n3. Modificar consola \n4. Modificar juego \nOpción: ";
-	cin >> option;
+	do{
+		cout << "Qué desea hacer?: \n1. Eliminar consola \n2. Eliminar juego \n3. Modificar consola \n4. Modificar juego \n5. Agregar Juego \n6.AgregarConsola \nOpción: ";
+		cin >> option;
+	}while(option<1 && option>6);
 
 	return option;
 }

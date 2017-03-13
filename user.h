@@ -28,8 +28,8 @@ class User {
 		string name;
 
 	public:
-		void addConsole(vector<Console*>);
-		void addGame(vector<Game*>);
+		vector<Console*> addConsole(vector<Console*>);
+		vector<Game*> addGame(vector<Game*>);
 		//Agregar la consola
 		Console* setNewConsole();
 		// Constructor.

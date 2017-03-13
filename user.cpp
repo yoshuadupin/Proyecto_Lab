@@ -26,7 +26,7 @@ string User::getName() {
 
 // addGame().
 
-void User::addGame(vector<Game*> games){
+vector<Game*> User::addGame(vector<Game*> games){
 	string name;
 	int year;
 	Console* console = NULL;
@@ -43,7 +43,7 @@ void User::addGame(vector<Game*> games){
 	
 
 	cout<<"Ingrese el nombre del juego:"<<endl;
-	getline(cin , name);
+	cin>>name;
 	
 	cout<<"Ingrese el ano:"<<endl;
 	cin>>year;
@@ -56,12 +56,16 @@ void User::addGame(vector<Game*> games){
 	
 	cout<<"Ingrese el estado del juego:"<<endl;
 	cin>>status;
-	status = 1000+games.size();
+	
+	//status = 1000+games.size();
 	cout<<"Ingrese el precio:"<<endl;
 	cin>>price;
+	
 	if(price<=0){
 		price=200;
 	}
+
+	cout<<"Agregara  una consola para el juego:"<<endl;
 	console = setNewConsole();
 	/*****************/
 	//TODO Hacer metodo para consolas.
@@ -99,6 +103,7 @@ void User::addGame(vector<Game*> games){
 
 	else if(opcion == 7){
 		games.push_back(new ElectronicArts(name, year, console, numberPlayers, genre, status, serialNumber, price));
+
 	}
 
 	else if(opcion == 8){
@@ -109,12 +114,22 @@ void User::addGame(vector<Game*> games){
 		games.push_back(new Ubisoft(name, year, console, numberPlayers, genre, status, serialNumber, price));
 	}else{
 		cout<<"Opcion por defecto se agrega una juego Nintendo"<<endl;
-	}			
+	}
+	cout<<"Es es el juego que agrego:"<<endl;
+	cout << "Índice: "<< games.size()-1<< endl;
+	cout << "Nombre: " << games[games.size()-1] -> getName() << endl;
+	cout << "Consola: " << games[games.size()-1] -> getConsole()->getModel() << endl;
+	cout << "Número de Jugadores: " << games[games.size()-1] -> getNumberPlayers() << endl;
+	cout << "Estado: " << games[games.size()-1] -> getStatus() << endl;
+	cout << "Precio: " << games[games.size()-1] -> getPrice() << endl;
+	cout << "Número de serie: " << games[games.size()-1] -> getSerialNumber() << endl;
+	cout << endl;			
+	return games;
 }
 
 // addConsole().
 
-void User::addConsole(vector<Console*> consoles){
+vector<Console*> User::addConsole(vector<Console*> consoles){
 	int year;
 	string model;
 	string condition;
@@ -289,7 +304,7 @@ void User::addConsole(vector<Console*> consoles){
 		}
 		
 	}
-	
+	return consoles;
 }//Que pedo con esta llave
 
 Console* User::setNewConsole(){
@@ -305,7 +320,7 @@ Console* User::setNewConsole(){
 	cin>>year;
 
 	cout<<"Ingrese el estado de la consola:"<<endl;
-	getline(cin , condition);
+	cin>>condition;
 	//Hay que cambiarlo
 	
 	cout<<"Ingrese el precio de venta:"<<endl;
