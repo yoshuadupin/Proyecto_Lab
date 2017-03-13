@@ -27,11 +27,11 @@ public:
 	public:
 
 		//Constructor
-		BD();
+		BD(){}
 
 
 		//Destructor
-		~BD();
+		~BD(){}
 
 	//Serializacion para atributos
     template<class Archive>

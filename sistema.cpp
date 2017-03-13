@@ -12,6 +12,13 @@
 #include <ctime>
 #include <typeinfo>
 
+#include <iostream>
+#include <fstream>
+#include <exception>
+#include <regex>
+#include <boost/archive/polymorphic_binary_iarchive.hpp>
+#include <boost/archive/polymorphic_binary_oarchive.hpp>
+
 // Escribe en archivo binario.
 void writeFile(vector<Console*>, vector<Game*>);
 // Lee archivo binario.
@@ -35,7 +42,25 @@ int getAdminOption();
 
 void printVectorGame(vector<Game*>);
 void printVectorConsole(vector<Console*> consoles);
-using namespace std;
+
+void save(const BD &s, const char* filename){
+    // make an archive
+	std::ofstream ofs(filename, std::ios::binary);
+	boost::archive::polymorphic_binary_oarchive oa(ofs);
+	oa << s;
+}
+
+void restore(BD &s, const char* filename)
+{
+    // open the archive
+	std::ifstream ifs(filename, std::ios::binary);
+	boost::archive::polymorphic_binary_iarchive ia(ifs);
+
+    // restore the schedule from the archive
+	ia >> s;
+}
+
+
 
 int main() {
 	vector<Console*> consoles;
@@ -47,6 +72,7 @@ int main() {
 	consoles = initializeConsoles();
 	videoGames = initializeVideoGames();
 
+	
 	// TODO: Validar si es admin, que el password sea el mismo al leer el binario.
 
 	/*User* user;*/
@@ -200,7 +226,7 @@ vector<Console*> initializeConsoles() {
 	vector<Console*> consoles;
 
 	for (int i = 0; i < 10; ++i) { // Nintendo 64.
-		 
+
 		consoles.push_back(new Nintendo(2004, "Nintendo 64", "Good", i + 1, 1100));
 	}
 
