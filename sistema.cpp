@@ -63,16 +63,20 @@ void restore(BD &s, const char* filename)
 
 
 int main() {
-	vector<Console*> consoles;
-	vector<Game*> videoGames;
+	/*vector<Console*> consoles;
+	vector<Game*> videoGames;*/
+	
+	BD baseDatos;
+	restore(baseDatos , "new.bin");
 	string name, checkIn, checkOut;
 	int option, password;
 	int objetosVendidos = 0;
 	double subTotalVendedor= 0;
-	consoles = initializeConsoles();
-	videoGames = initializeVideoGames();
+	baseDatos.consoles = initializeConsoles();
+	baseDatos.games = initializeVideoGames();
+	save(baseDatos , "new.bin");
 
-	
+
 	// TODO: Validar si es admin, que el password sea el mismo al leer el binario.
 
 	/*User* user;*/
@@ -83,19 +87,7 @@ int main() {
 	UserSeller* userSeller = new UserSeller(name, checkIn, "");
 	userSeller -> setCheckIn(getHour());
 	Console * console = new Nintendo(2004, "Nintendo 64", "Good", 1, 1100);
-	for (int i = 0; i < consoles.size(); ++i) {
 
-		cout<<typeid(console).name()<<endl;
-		cout<<typeid(Microsoft).name()<<endl;
-		if (typeid(*consoles[i]) == typeid(Microsoft)) {
-			cout << "Índice: "<< i << endl;
-			cout << "Modelo: " << consoles[i] -> getModel() << endl;
-			cout << "Estado: " << consoles[i] -> getCondition() << endl;
-			cout << "Precio: " << consoles[i] -> getPrice() << endl;
-			cout << "Número de serie: " << consoles[i] -> getSerialNumber() << endl;
-			cout << endl;
-		}
-	}
 	do {
 
 		option = getUserOption();
@@ -113,28 +105,28 @@ int main() {
 				cout << "Ingrese posición a eliminar: ";
 				cin >> position;
 
-				consoles = user -> deleteConsole(consoles, position);
+				baseDatos.consoles = user -> deleteConsole(baseDatos.consoles, position);
 			} else if (option == 2) { // Eliminar juego.
 				cout << "Ingrese posición a eliminar: ";
 				cin >> position;
 				
-				videoGames = user -> deleteGame(videoGames, position);
+				baseDatos.games = user -> deleteGame(baseDatos.games, position);
 			} else if (option == 3) { // Modificar consola.
 				cout << "Ingrese posición a modificar: ";
 				cin >> position;
 				
-				consoles = user -> modifyConsole(consoles, position);
+				baseDatos.consoles = user -> modifyConsole(baseDatos.consoles, position);
 			} else if (option == 4) { // Modificar juego.
 				cout << "Ingrese posición a modificar: ";
 				cin >> position;
 
-				videoGames = user -> modifyGame(videoGames, position);
+				baseDatos.games = user -> modifyGame(baseDatos.games, position);
 			}else if(option == 5){
 				cout<<"Agregara un juego:"<<endl;
-				videoGames =user -> addGame(videoGames);   
+				baseDatos.games =user -> addGame(baseDatos.games);   
 			}else if(option == 6){
 				cout<<"Agregara una consola:"<<endl;
-				consoles = user -> addConsole(consoles);
+				baseDatos.consoles = user -> addConsole(baseDatos.consoles);
 			} else {
 				cout << "Opción inválida!... Regresás al main, por maule .-." << endl;
 				//option = 3;
@@ -143,7 +135,7 @@ int main() {
 			// Escribir al archivo binario para que guarde todo.
 		} else if (option == 2) { // Vendedor.
 			
-			Sale* sale = userSeller -> makeSale(consoles, videoGames);
+			Sale* sale = userSeller -> makeSale(baseDatos.consoles, videoGames);
 			doTicket(sale, userSeller);
 			objetosVendidos += sale ->getConsoles().size()+ sale->getGames().size();
 			subTotalVendedor += sale ->getSubtotal();			
