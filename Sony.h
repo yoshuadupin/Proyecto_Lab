@@ -7,9 +7,14 @@
 using namespace std;
 
 class Sony : public Console {
-	public:
+	friend class boost::serialization::access;
+public:
 		// Constructor.
-		Sony(int, string, string, int, double);
+	Sony(int, string, string, int, double);
 		// Destructor.
-		~Sony();
+		template<class Archive>
+void serialize(Archive & ar, const unsigned int /* file_version */){
+	ar & boost::serialization::base_object<Consola>(*this);
+}
+~Sony();
 };

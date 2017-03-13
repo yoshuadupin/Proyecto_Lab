@@ -7,9 +7,14 @@
 using namespace std;
 
 class Nintendo : public Console {
-	public:
+	friend class boost::serialization::access;
+public:
 		// Constructor.
-		Nintendo(int, string, string, int, double);
+	Nintendo(int, string, string, int, double);
 		// Destructor.
-		~Nintendo();
+	~Nintendo();
+template<class Archive>
+void serialize(Archive & ar, const unsigned int /* file_version */){
+	ar & boost::serialization::base_object<Consola>(*this);
+}
 };

@@ -1,13 +1,18 @@
 // Console.h
 
 #pragma once
+#include <string>
+#include <boost/serialization/vector.hpp>
+#include <boost/serialization/base_object.hpp>
+#include <boost/serialization/assume_abstract.hpp>
 
 #include <iostream>
-#include <string>
+
 
 using namespace std;
 
 class Console {
+	friend class boot::serialization::access;
 	private:
 		int year;
 		string model;
@@ -31,5 +36,11 @@ class Console {
 		int getSerialNumber();
 		double getPrice();
 		// Destructor.
+		template<class Archive>
+		void serialize(Archive & ar, const unsigned int /* file_version */){
+		
+		ar & year & model & condition & serialNumber & getPrice;
+		
+		}
 		~Console();
 };
